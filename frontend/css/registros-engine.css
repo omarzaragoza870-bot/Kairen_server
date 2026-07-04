@@ -1,0 +1,1982 @@
+/* ============================================================
+   ALPHA v1.4: MOTOR DE REGISTROS
+============================================================ */
+
+/* El textarea del formulario genérico ocupa toda la fila.
+   (La clase .input-full no estaba definida en ningún CSS.) */
+.form-grid .input-full{
+    grid-column:1 / -1;
+}
+
+.registro-preview-box{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    margin-top:18px;
+    padding:16px;
+    border-radius:18px;
+    background:rgba(79,124,255,.10);
+    border:1px solid rgba(79,124,255,.18);
+}
+
+.registro-preview-box > span{
+    width:44px;
+    height:44px;
+    flex:0 0 44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:15px;
+    background:rgba(15,23,42,.72);
+    font-size:23px;
+}
+
+.registro-preview-box strong{
+    display:block;
+    color:white;
+    margin-bottom:4px;
+}
+
+.registro-preview-box p{
+    margin:0;
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.35;
+}
+
+@media(max-width:720px){
+    .registro-preview-box{
+        padding:12px;
+        gap:10px;
+        border-radius:14px;
+    }
+
+    .registro-preview-box > span{
+        width:34px;
+        height:34px;
+        flex-basis:34px;
+        font-size:18px;
+        border-radius:11px;
+    }
+
+    .registro-preview-box p{
+        font-size:11px;
+    }
+}
+
+
+/* ============================================================
+   ALPHA v1.4.1: DRAWER DINAMICO
+============================================================ */
+
+.agenda-drawer-bloque{
+    display:grid;
+    gap:8px;
+    margin:12px 0;
+}
+
+.agenda-drawer-bloque h4{
+    color:#94a3b8;
+    font-size:12px;
+    margin:0;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+}
+
+.agenda-detalle-row strong{
+    max-width:210px;
+    text-align:right;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.agenda-checklist-lista{
+    display:grid;
+    gap:7px;
+}
+
+.agenda-checklist-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 10px;
+    border-radius:12px;
+    background:rgba(15,23,42,.62);
+    border:1px solid rgba(148,163,184,.12);
+    color:#cbd5e1;
+}
+
+.agenda-checklist-item span{
+    color:#93c5fd;
+    font-weight:900;
+}
+
+.agenda-checklist-item strong{
+    font-size:13px;
+    font-weight:800;
+}
+
+.agenda-checklist-item.completado{
+    opacity:.62;
+}
+
+.agenda-checklist-item.completado strong{
+    text-decoration:line-through;
+}
+
+.agenda-timeline-mini{
+    display:grid;
+    gap:4px;
+    padding:11px 12px;
+    border-radius:14px;
+    background:rgba(79,124,255,.10);
+    border:1px solid rgba(79,124,255,.16);
+    margin-top:10px;
+}
+
+.agenda-timeline-mini span{
+    color:#93c5fd;
+    font-size:12px;
+    font-weight:800;
+}
+
+.agenda-timeline-mini strong{
+    color:#dbeafe;
+    font-size:13px;
+}
+
+@media(max-width:720px){
+    .agenda-drawer-bloque h4{
+        font-size:10px;
+    }
+
+    .agenda-checklist-item{
+        padding:7px 8px;
+        border-radius:10px;
+    }
+
+    .agenda-checklist-item strong,
+    .agenda-timeline-mini strong{
+        font-size:11px;
+    }
+
+    .agenda-timeline-mini span{
+        font-size:10px;
+    }
+}
+
+/* ============================================================
+   ALPHA v1.4.2: CHECKLIST EDITABLE
+============================================================ */
+
+button.agenda-checklist-item{
+    width:100%;
+    cursor:pointer;
+    text-align:left;
+}
+
+button.agenda-checklist-item:hover{
+    border-color:rgba(79,124,255,.32);
+    background:rgba(79,124,255,.10);
+    transform:translateY(-1px);
+}
+
+button.agenda-checklist-item:active{
+    transform:translateY(0);
+}
+
+.agenda-checklist-item.completado span{
+    color:#22c55e;
+}
+
+.agenda-checklist-item.completado{
+    background:rgba(34,197,94,.08);
+    border-color:rgba(34,197,94,.16);
+}
+
+/* ============================================================
+   ALPHA v1.4.3: CHECKLIST EDITABLE POR USUARIO
+============================================================ */
+
+.agenda-checklist-add{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px;
+    margin-bottom:8px;
+}
+
+.agenda-checklist-add input{
+    min-height:38px;
+    border-radius:12px;
+    border:1px solid rgba(148,163,184,.18);
+    background:rgba(15,23,42,.72);
+    color:white;
+    padding:0 12px;
+    outline:none;
+}
+
+.agenda-checklist-add button{
+    min-height:38px;
+    border-radius:12px;
+    border:1px solid rgba(79,124,255,.24);
+    background:rgba(79,124,255,.14);
+    color:#dbeafe;
+    padding:0 12px;
+    font-weight:900;
+}
+
+.agenda-checklist-empty{
+    padding:10px 12px;
+    border-radius:12px;
+    background:rgba(15,23,42,.45);
+    border:1px dashed rgba(148,163,184,.18);
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.agenda-checklist-editable-item{
+    display:grid;
+    grid-template-columns:auto 1fr auto auto;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:12px;
+    background:rgba(15,23,42,.62);
+    border:1px solid rgba(148,163,184,.12);
+}
+
+.agenda-checklist-editable-item strong{
+    color:#cbd5e1;
+    font-size:13px;
+    line-height:1.2;
+}
+
+.agenda-checklist-editable-item.completado{
+    background:rgba(34,197,94,.08);
+    border-color:rgba(34,197,94,.16);
+}
+
+.agenda-checklist-editable-item.completado strong{
+    text-decoration:line-through;
+    opacity:.62;
+}
+
+.agenda-checklist-toggle,
+.agenda-checklist-action{
+    width:28px;
+    height:28px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(148,163,184,.14);
+    background:rgba(15,23,42,.78);
+    color:#cbd5e1;
+    padding:0;
+    font-size:13px;
+}
+
+.agenda-checklist-toggle:hover,
+.agenda-checklist-action:hover{
+    border-color:rgba(79,124,255,.32);
+    background:rgba(79,124,255,.12);
+}
+
+.agenda-checklist-action.danger:hover{
+    border-color:rgba(239,68,68,.32);
+    background:rgba(239,68,68,.12);
+}
+
+
+/* ============================================================
+   ALPHA v1.5: ESTADO DE OPERACIÓN
+============================================================ */
+
+.estado-selector{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:6px;
+}
+
+.estado-pill{
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:13px;
+    border:1px solid rgba(148,163,184,.28);
+    background:rgba(148,163,184,.10);
+    color:#cbd5e1;
+    transition:transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.estado-pill:hover{
+    transform:translateY(-1px);
+    border-color:rgba(148,163,184,.5);
+}
+
+.estado-pill:active{
+    transform:translateY(0);
+}
+
+/* Badge (solo lectura) en la tarjeta de Agenda. */
+.estado-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:4px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+    margin-left:8px;
+    border:1px solid transparent;
+}
+
+/* Colores por estado: el badge siempre; el pill solo cuando está activo. */
+.estado-badge.estado-pendiente,
+.estado-pill.estado-activo.estado-pendiente{
+    background:rgba(245,158,11,.16);
+    border-color:rgba(245,158,11,.4);
+    color:#fbbf24;
+}
+
+.estado-badge.estado-confirmado,
+.estado-pill.estado-activo.estado-confirmado{
+    background:rgba(59,130,246,.16);
+    border-color:rgba(59,130,246,.4);
+    color:#60a5fa;
+}
+
+.estado-badge.estado-encurso,
+.estado-pill.estado-activo.estado-encurso{
+    background:rgba(34,197,94,.16);
+    border-color:rgba(34,197,94,.4);
+    color:#4ade80;
+}
+
+.estado-badge.estado-finalizado,
+.estado-pill.estado-activo.estado-finalizado{
+    background:rgba(100,116,139,.20);
+    border-color:rgba(100,116,139,.5);
+    color:#cbd5e1;
+}
+
+.estado-badge.estado-cancelado,
+.estado-pill.estado-activo.estado-cancelado{
+    background:rgba(239,68,68,.16);
+    border-color:rgba(239,68,68,.4);
+    color:#f87171;
+}
+
+
+/* ============================================================
+   ALPHA v1.6: VISTA HOY
+============================================================ */
+
+.hoy-bloque{
+    margin-top:16px;
+}
+
+.hoy-titulo{
+    margin:0 0 12px;
+    font-size:15px;
+    opacity:.85;
+}
+
+/* Resumen por estado */
+.hoy-resumen{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:10px;
+}
+
+.hoy-resumen-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    padding:14px 8px;
+    border-radius:14px;
+    background:rgba(148,163,184,.05);
+    border:1px solid rgba(148,163,184,.12);
+    text-align:center;
+    transition:border-color .15s ease, transform .15s ease;
+}
+
+.hoy-resumen-item:hover{
+    transform:translateY(-1px);
+    border-color:var(--border-strong, rgba(79,124,255,.26));
+}
+
+.hoy-resumen-icono{
+    font-size:18px;
+}
+
+.hoy-resumen-num{
+    font-size:24px;
+    font-weight:700;
+    line-height:1;
+}
+
+.hoy-resumen-label{
+    font-size:12px;
+    opacity:.8;
+}
+
+/* Próxima operación */
+.hoy-proxima-card{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px;
+    border-radius:18px;
+    background:linear-gradient(135deg, rgba(79,124,255,.15), rgba(79,124,255,.05));
+    border:1px solid var(--border-strong, rgba(79,124,255,.26));
+    transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.hoy-proxima-card:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--glow, 0 18px 40px rgba(37,99,235,.14));
+}
+
+.hoy-proxima-hora{
+    font-size:18px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.hoy-proxima-info h4{
+    margin:0 0 4px;
+}
+
+.hoy-proxima-info p{
+    margin:2px 0;
+    opacity:.8;
+    font-size:13px;
+}
+
+.hoy-proxima-fecha{
+    font-size:12px !important;
+}
+
+.hoy-proxima-info .estado-badge{
+    margin-left:0;
+    margin-top:6px;
+}
+
+/* Operaciones de hoy */
+.hoy-op-hora{
+    font-weight:600;
+    white-space:nowrap;
+}
+
+/* Pendientes de hoy */
+.hoy-pend-grupo{
+    padding:12px 14px;
+    border-radius:12px;
+    background:rgba(148,163,184,.06);
+    border:1px solid rgba(148,163,184,.12);
+    margin-bottom:10px;
+}
+
+.hoy-pend-grupo h4{
+    margin:0 0 8px;
+}
+
+.hoy-pend-lista{
+    margin:0;
+    padding-left:4px;
+    list-style:none;
+}
+
+.hoy-pend-lista li{
+    padding:4px 0;
+    opacity:.9;
+}
+
+.hoy-vacio{
+    opacity:.6;
+    font-size:14px;
+    margin:4px 0;
+}
+
+@media (max-width:720px){
+    .hoy-resumen{
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+
+
+/* ALPHA v1.6: layout responsive + acciones + clickable */
+
+.hoy-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    margin-top:16px;
+}
+
+.hoy-grid > .hoy-bloque{
+    margin-top:0;
+}
+
+@media (min-width:768px){
+    .hoy-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+.hoy-acciones{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.hoy-acciones button{
+    flex:1;
+    min-width:150px;
+}
+
+.hoy-clickable{
+    cursor:pointer;
+    transition:transform .12s ease, border-color .12s ease;
+}
+
+.hoy-clickable:hover{
+    transform:translateY(-1px);
+    border-color:rgba(79,124,255,.4);
+}
+
+
+/* ============================================================
+   ALPHA v1.7: MATERIAL POR OPERACIÓN (espejo del checklist)
+============================================================ */
+
+.agenda-material-add{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px;
+    margin-bottom:8px;
+}
+
+.agenda-material-add input{
+    min-height:38px;
+    border-radius:12px;
+    border:1px solid rgba(148,163,184,.18);
+    background:rgba(15,23,42,.72);
+    color:white;
+    padding:0 12px;
+    outline:none;
+}
+
+.agenda-material-add button{
+    min-height:38px;
+    border-radius:12px;
+    border:1px solid rgba(79,124,255,.24);
+    background:rgba(79,124,255,.14);
+    color:#dbeafe;
+    padding:0 12px;
+    font-weight:900;
+}
+
+.agenda-material-empty{
+    padding:10px 12px;
+    border-radius:12px;
+    background:rgba(15,23,42,.45);
+    border:1px dashed rgba(148,163,184,.18);
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.agenda-material-item{
+    display:grid;
+    grid-template-columns:auto 1fr auto auto;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:12px;
+    background:rgba(15,23,42,.62);
+    border:1px solid rgba(148,163,184,.12);
+    margin-bottom:6px;
+}
+
+.agenda-material-item strong{
+    color:#cbd5e1;
+    font-size:13px;
+    line-height:1.2;
+}
+
+.agenda-material-item.listo{
+    background:rgba(34,197,94,.08);
+    border-color:rgba(34,197,94,.16);
+}
+
+.agenda-material-item.listo strong{
+    text-decoration:line-through;
+    opacity:.62;
+}
+
+.agenda-material-toggle,
+.agenda-material-action{
+    width:28px;
+    height:28px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(148,163,184,.14);
+    background:rgba(15,23,42,.78);
+    color:#cbd5e1;
+    padding:0;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.agenda-material-toggle:hover,
+.agenda-material-action:hover{
+    border-color:rgba(79,124,255,.32);
+    background:rgba(79,124,255,.12);
+}
+
+.agenda-material-action.danger:hover{
+    border-color:rgba(239,68,68,.32);
+    background:rgba(239,68,68,.12);
+}
+
+
+/* ============================================================
+   ALPHA v1.9 + v1.10: TARJETAS INTELIGENTES EN VISTA HOY
+============================================================ */
+
+#hoyOperaciones{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+@media (min-width:600px){
+    #hoyOperaciones{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+.hoy-op-card{
+    padding:16px;
+    border-radius:16px;
+    background:rgba(148,163,184,.07);
+    border:1px solid rgba(148,163,184,.14);
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.hoy-op-card:hover{
+    transform:translateY(-2px);
+    border-color:var(--border-strong, rgba(79,124,255,.26));
+    box-shadow:0 10px 26px rgba(0,0,0,.22);
+}
+
+.hoy-op-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+}
+
+.hoy-op-card-top .estado-badge{
+    margin-left:0;
+}
+
+.hoy-op-card-nombre{
+    margin:0;
+    font-size:15px;
+    font-weight:700;
+    line-height:1.25;
+}
+
+.hoy-op-card-lugar{
+    margin:0;
+    opacity:.75;
+    font-size:13px;
+}
+
+.hoy-op-indicadores{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.hoy-indicador{
+    font-size:12px;
+    font-weight:600;
+    padding:4px 11px;
+    border-radius:999px;
+    background:rgba(15,23,42,.55);
+    border:1px solid rgba(148,163,184,.16);
+    color:var(--muted, #cbd5e1);
+}
+
+.hoy-op-acciones{
+    display:flex;
+    gap:8px;
+    margin-top:4px;
+}
+
+.hoy-op-acciones button{
+    flex:1;
+}
+
+.hoy-proxima-restante{
+    font-size:13px !important;
+    color:#fbbf24 !important;
+    font-weight:600;
+}
+
+
+/* ============================================================
+   ALPHA v1.11/v1.12: DOCUMENTOS, PERSONAS Y MODAL DE FORMULARIO
+============================================================ */
+
+/* Modal de formulario genérico (encima del drawer) */
+#modalFormulario{
+    z-index:2000;
+}
+
+.formulario-label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:#334155;
+    margin-bottom:12px;
+}
+
+#formularioCampos input,
+#formularioCampos textarea{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    margin-top:4px;
+    padding:10px 12px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:400;
+    outline:none;
+}
+
+#formularioCampos textarea{
+    min-height:64px;
+    resize:vertical;
+}
+
+#formularioCampos input:focus,
+#formularioCampos textarea:focus{
+    border-color:#4f7cff;
+}
+
+/* Items de documentos y personas */
+.agenda-doc-item,
+.agenda-persona-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:12px;
+    background:rgba(15,23,42,.62);
+    border:1px solid rgba(148,163,184,.12);
+    margin-bottom:6px;
+}
+
+.agenda-doc-info,
+.agenda-persona-info{
+    min-width:0;
+    flex:1;
+}
+
+.agenda-doc-titulo,
+.agenda-persona-titulo{
+    color:#cbd5e1;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.agenda-doc-tipo,
+.agenda-persona-rol{
+    font-size:11px;
+    padding:2px 8px;
+    border-radius:999px;
+    background:rgba(79,124,255,.14);
+    border:1px solid rgba(79,124,255,.24);
+    color:#bfdbfe;
+}
+
+.agenda-doc-notas{
+    margin:4px 0 0;
+    font-size:12px;
+    color:#94a3b8;
+}
+
+.agenda-persona-dato{
+    font-size:12px;
+    color:#cbd5e1;
+    margin-top:2px;
+}
+
+.agenda-doc-acciones,
+.agenda-persona-acciones{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+
+.agenda-doc-link,
+.agenda-persona-btn{
+    font-size:11px;
+    padding:5px 10px;
+    border-radius:9px;
+    text-decoration:none;
+    border:1px solid rgba(148,163,184,.18);
+    color:#cbd5e1;
+    white-space:nowrap;
+}
+
+.agenda-persona-btn.wa{
+    background:rgba(34,197,94,.14);
+    border-color:rgba(34,197,94,.3);
+    color:#86efac;
+}
+
+.agenda-persona-btn.mail{
+    background:rgba(79,124,255,.14);
+    border-color:rgba(79,124,255,.3);
+    color:#bfdbfe;
+}
+
+.agenda-doc-link:hover,
+.agenda-persona-btn:hover{
+    filter:brightness(1.15);
+}
+
+/* ============================================================
+   ALPHA v1.14: SELECTOR DE TIPOS DINÁMICO
+============================================================ */
+
+.registro-grupo-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:8px;
+}
+
+.registro-grupo-header h3{
+    margin:0;
+}
+
+.btn-agregar-tipo{
+    font-size:13px;
+    padding:6px 12px;
+    white-space:nowrap;
+}
+
+.registro-opcion-wrap{
+    position:relative;
+}
+
+.registro-opcion-wrap .registro-opcion{
+    width:100%;
+}
+
+/* Botón eliminar SIEMPRE visible (mobile-first: no hay hover en móvil) */
+.registro-tipo-eliminar{
+    position:absolute;
+    top:6px;
+    right:6px;
+    border:none;
+    background:rgba(15,23,42,.6);
+    color:#fca5a5;
+    border-radius:8px;
+    padding:4px 7px;
+    font-size:12px;
+    line-height:1;
+    cursor:pointer;
+}
+
+.registro-tipo-eliminar:hover{
+    background:rgba(239,68,68,.25);
+}
+
+.registro-vacio{
+    grid-column:1 / -1;
+    opacity:.6;
+    font-size:14px;
+    margin:6px 0;
+}
+
+
+/* ============================================================
+   ALPHA v1.15: ACORDEÓN DEL DRAWER (secciones colapsables)
+============================================================ */
+
+.agenda-drawer-bloque > h4{
+    cursor:pointer;
+    user-select:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+}
+
+.agenda-drawer-bloque > h4::after{
+    content:"▾";
+    font-size:12px;
+    opacity:.55;
+    font-weight:400;
+}
+
+.agenda-drawer-bloque.colapsado > h4::after{
+    content:"▸";
+}
+
+.agenda-drawer-bloque.colapsado > :not(h4){
+    display:none;
+}
+
+
+/* ============================================================
+   ALPHA v1.16: SUBIDA DE ARCHIVOS LOCALES (ícono dentro del box)
+============================================================ */
+
+/* Input con ícono de subida integrado, estilo iOS.
+   El input ocupa todo el ancho y el ícono se posiciona ENCIMA de su
+   lado derecho, centrado vertical (top/bottom + margin auto). */
+.input-con-upload{
+    position:relative;
+    display:block;
+    width:100%;
+}
+
+.input-con-upload > input{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    margin:0 !important;
+    padding-right:50px !important;
+}
+
+.input-upload-icono{
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:12px;
+    margin-top:auto;
+    margin-bottom:auto;
+    width:24px;
+    height:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:2;
+    color:#cbd5e1;
+    background:none;
+    border:none;
+}
+
+.input-upload-icono svg{
+    display:block;
+    fill:none;
+    stroke:currentColor;
+}
+
+.input-upload-icono:hover{
+    color:#ffffff;
+}
+
+/* El file input real siempre oculto (algunas reglas de modal
+   estilizan "input" y anulaban el atributo hidden). */
+.input-upload-icono input[type="file"]{
+    display:none !important;
+}
+
+.formulario-file-estado{
+    display:inline-block;
+    margin-top:6px;
+    font-size:12px;
+    opacity:.85;
+}
+
+.evento-imagen-preview{
+    display:block;
+    max-width:140px;
+    max-height:90px;
+    margin-top:10px;
+    border-radius:8px;
+    border:1px solid rgba(148,163,184,.2);
+    object-fit:cover;
+}
+
+
+/* ============================================================
+   KAIREN: PULIDO VISUAL — EVENTOS
+   (elevación al hover + zoom sutil de imagen, como en Hoy)
+============================================================ */
+
+.evento-card-pro{
+    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.evento-card-pro:hover{
+    transform:translateY(-3px);
+}
+
+/* Zoom sutil de la foto del evento al pasar el cursor */
+.evento-card-pro-imagen{
+    transition:transform .35s ease;
+}
+
+.evento-card-pro:hover .evento-card-pro-imagen{
+    transform:scale(1.045);
+}
+
+/* Tarjetas de resumen (contadores) con micro-hover */
+.evento-resumen-card{
+    transition:transform .15s ease, border-color .15s ease;
+}
+
+.evento-resumen-card:hover{
+    transform:translateY(-2px);
+    border-color:var(--border-strong, rgba(79,124,255,.26));
+}
+
+/* Stats dentro de la tarjeta: un pelín más de vida */
+.evento-pro-stat{
+    transition:border-color .15s ease;
+}
+
+.evento-card-pro:hover .evento-pro-stat{
+    border-color:rgba(148,163,184,.22);
+}
+
+
+/* ============================================================
+   KAIREN: PULIDO VISUAL — AGENDA / DRAWER
+============================================================ */
+
+/* Día de HOY más visible (tinte suave, no solo borde) */
+.agenda-dia.agenda-dia-hoy{
+    background:rgba(79,124,255,.12);
+    border-color:rgba(79,124,255,.70);
+    box-shadow:0 0 0 1px rgba(79,124,255,.20);
+}
+
+/* Títulos del acordeón: feedback al pasar/tocar + mejor área */
+.agenda-drawer-bloque > h4{
+    padding:3px 2px;
+    border-radius:8px;
+    transition:color .15s ease, background .15s ease;
+}
+
+.agenda-drawer-bloque > h4:hover{
+    color:#ffffff;
+    background:rgba(148,163,184,.08);
+}
+
+/* Tarjetas de resumen (panel derecho) con micro-hover */
+.agenda-resumen-card{
+    transition:transform .15s ease, border-color .15s ease;
+}
+
+.agenda-resumen-card:hover{
+    transform:translateY(-2px);
+    border-color:var(--border-strong, rgba(79,124,255,.26));
+}
+
+/* Próximas operaciones: leve deslizamiento al hover */
+.agenda-proxima-item{
+    transition:transform .15s ease, border-color .15s ease;
+}
+
+.agenda-proxima-item:hover{
+    transform:translateX(3px);
+    border-color:var(--border-strong, rgba(79,124,255,.26));
+}
+
+/* Tarjeta de operación dentro del drawer: borde reactivo */
+.agenda-funcion-card{
+    transition:border-color .15s ease;
+}
+
+.agenda-funcion-card:hover{
+    border-color:rgba(148,163,184,.28);
+}
+
+
+/* ============================================================
+   SPRINT RECURRENCIA: UI de repetición + banner de serie
+============================================================ */
+
+.rec-bloque{
+    margin-top:4px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.rec-label{
+    font-size:13px;
+    font-weight:700;
+    color:#cbd5e1;
+}
+
+/* Select con el mismo formato minimalista que los inputs */
+#registroGenericoRepeticion{
+    width:100%;
+    padding:12px 14px;
+    font-size:15px;
+    border-radius:12px;
+    color:#f8fafc;
+    color-scheme:dark;
+    background-color:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #94a3b8 50%),
+        linear-gradient(135deg, #94a3b8 50%, transparent 50%);
+    background-position:
+        calc(100% - 19px) 55%,
+        calc(100% - 14px) 55%;
+    background-size:5px 5px, 5px 5px;
+    background-repeat:no-repeat;
+    transition:border-color .15s ease, box-shadow .15s ease;
+}
+
+#registroGenericoRepeticion:focus{
+    outline:none;
+    border-color:#4f7cff;
+    box-shadow:0 0 0 4px rgba(79,124,255,.14);
+}
+
+#registroGenericoRepeticion option{
+    background:#0f172a;
+    color:#f8fafc;
+}
+
+.rec-panel{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding:14px;
+    border-radius:14px;
+    background:rgba(15,23,42,.55);
+    border:1px solid rgba(148,163,184,.16);
+}
+
+.rec-fila{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#cbd5e1;
+    font-size:14px;
+    flex-wrap:wrap;
+}
+
+.rec-intervalo{
+    width:70px !important;
+    text-align:center;
+    margin:0 !important;
+}
+
+.rec-dias{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.rec-dia{
+    cursor:pointer;
+    user-select:none;
+}
+
+.rec-dia input{
+    display:none;
+}
+
+.rec-dia span{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:rgba(15,23,42,.7);
+    border:1px solid rgba(148,163,184,.2);
+    color:#94a3b8;
+    font-weight:800;
+    transition:all .15s ease;
+}
+
+.rec-dia input:checked + span{
+    background:linear-gradient(135deg, #4f7cff, #8b5cf6);
+    border-color:transparent;
+    color:#fff;
+    box-shadow:0 4px 12px rgba(79,124,255,.35);
+}
+
+.rec-fin{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.rec-fin-titulo{
+    font-size:13px;
+    font-weight:700;
+    color:#cbd5e1;
+}
+
+.rec-fin-op{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#cbd5e1;
+    font-size:14px;
+    flex-wrap:wrap;
+}
+
+.rec-fin-input{
+    width:auto !important;
+    max-width:180px;
+    margin:0 !important;
+}
+
+.rec-fin-conteo{
+    width:80px !important;
+}
+
+/* Banner de serie en el drawer */
+.agenda-serie-banner{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12.5px;
+    font-weight:700;
+    color:#c7d2fe;
+    background:rgba(79,124,255,.12);
+    border:1px solid rgba(79,124,255,.28);
+    border-radius:12px;
+    padding:8px 12px;
+    margin-bottom:6px;
+}
+
+.agenda-serie-banner.es-ocurrencia{
+    color:#ddd6fe;
+    background:rgba(139,92,246,.14);
+    border-color:rgba(139,92,246,.3);
+}
+
+.agenda-serie-editar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    grid-column:1 / -1;
+}
+
+.agenda-serie-editar-label{
+    color:#94a3b8;
+    font-size:13px;
+    font-weight:700;
+}
+
+.btn-mini{
+    padding:7px 12px !important;
+    font-size:12.5px !important;
+    min-height:auto !important;
+    flex:0 0 auto !important;
+    min-width:auto !important;
+}
+
+
+/* ============================================================
+   Campos del formulario de operación:
+   redondeados + gris muy claro casi transparente + pickers oscuros
+============================================================ */
+
+#modalRegistroGenerico input,
+#modalRegistroGenerico textarea,
+#modalRegistroGenerico select,
+#recPanelPersonalizado input{
+    background-color:rgba(255,255,255,0.05) !important;
+    border:1px solid rgba(255,255,255,0.12) !important;
+    border-radius:12px !important;
+    color:#f8fafc !important;
+    color-scheme:dark;   /* fecha/hora/número nativos en oscuro, no blanco */
+}
+
+#modalRegistroGenerico textarea{
+    padding:12px 14px !important;   /* el texto no se pega a la izquierda */
+    line-height:1.5;
+}
+
+#modalRegistroGenerico input::placeholder,
+#modalRegistroGenerico textarea::placeholder{
+    color:#64748b;
+}
+
+#modalRegistroGenerico input:focus,
+#modalRegistroGenerico textarea:focus,
+#modalRegistroGenerico select:focus,
+#recPanelPersonalizado input:focus{
+    border-color:rgba(79,124,255,.55) !important;
+    box-shadow:0 0 0 4px rgba(79,124,255,.14);
+    outline:none;
+}
+
+
+/* Relleno base para TODOS los textarea (el estilo base solo cubría input) */
+textarea{
+    padding:12px 14px;
+    border-radius:12px;
+    line-height:1.5;
+}
+
+
+/* ============================================================
+   MÓDULO CAJA / POS — Parte 1
+============================================================ */
+
+#modalCaja input,
+#modalCaja select{
+    color-scheme:dark;
+}
+
+.caja-resumen{
+    display:flex;
+    gap:10px;
+    margin:4px 0 14px;
+}
+
+.caja-resumen-item{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    padding:12px 14px;
+    border-radius:14px;
+    background:linear-gradient(135deg, rgba(79,124,255,.14), rgba(139,92,246,.12));
+    border:1px solid rgba(79,124,255,.22);
+}
+
+.caja-resumen-label{
+    font-size:12px;
+    color:#94a3b8;
+    font-weight:600;
+}
+
+.caja-resumen-valor{
+    font-size:22px;
+    color:#f8fafc;
+    font-weight:800;
+}
+
+.caja-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:14px;
+    border-radius:16px;
+    background:rgba(15,23,42,.5);
+    border:1px solid rgba(148,163,184,.14);
+    margin-bottom:16px;
+}
+
+.caja-btn-venta{
+    width:100%;
+    margin-top:2px;
+}
+
+.caja-lista-titulo{
+    font-size:13px;
+    font-weight:700;
+    color:#cbd5e1;
+    margin-bottom:8px;
+}
+
+.caja-lista{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.caja-vacio{
+    color:#64748b;
+    font-size:14px;
+    text-align:center;
+    padding:18px 0;
+}
+
+.caja-mov{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:11px 13px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(148,163,184,.14);
+    transition:border-color .15s ease;
+}
+
+.caja-mov:hover{
+    border-color:rgba(148,163,184,.28);
+}
+
+.caja-mov-info{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    min-width:0;
+}
+
+.caja-mov-top{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.caja-mov-cat{
+    font-size:11px;
+    font-weight:800;
+    padding:2px 8px;
+    border-radius:999px;
+    background:rgba(148,163,184,.2);
+    color:#e2e8f0;
+}
+
+.caja-mov-cat.cat-general{     background:rgba(79,124,255,.22);  color:#c7d2fe; }
+.caja-mov-cat.cat-preferente{  background:rgba(139,92,246,.22);  color:#ddd6fe; }
+.caja-mov-cat.cat-vip{         background:rgba(234,179,8,.20);   color:#fde68a; }
+
+.caja-mov-folios{
+    font-size:12.5px;
+    font-weight:700;
+    color:#94a3b8;
+    letter-spacing:.3px;
+}
+
+.caja-mov-sub{
+    font-size:12.5px;
+    color:#94a3b8;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.caja-mov-lado{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex:0 0 auto;
+}
+
+.caja-mov-monto{
+    font-size:16px;
+    font-weight:800;
+    color:#4ade80;
+    white-space:nowrap;
+}
+
+.caja-mov-del{
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+    opacity:.6;
+    transition:opacity .15s ease;
+    padding:4px;
+}
+
+.caja-mov-del:hover{
+    opacity:1;
+}
+
+
+/* Caja: rótulos encima de cada campo */
+.caja-campo{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.caja-campo-label{
+    font-size:12px;
+    font-weight:700;
+    color:#94a3b8;
+    padding-left:2px;
+}
+
+.caja-campo input,
+.caja-campo select{
+    margin:0 !important;         /* el gap del grid maneja el espacio */
+    width:100%;
+    box-sizing:border-box;
+    padding:12px 14px !important; /* mismo tamaño en input y select */
+    border-radius:12px !important;
+    font-size:15px;
+    height:48px;
+}
+
+.caja-total-input{
+    font-weight:800 !important;
+    color:#4ade80 !important;
+    cursor:default;
+}
+
+
+/* ============================================================
+   CAJA — Parte 2: modo, desglose, colores, CSV
+============================================================ */
+
+.caja-resumen-valor.rojo{ color:#f87171; }
+.caja-resumen-valor.verde{ color:#4ade80; }
+.caja-mov-monto.rojo{ color:#f87171; }
+
+.caja-modo{
+    display:flex;
+    gap:6px;
+    margin-bottom:10px;
+    background:rgba(15,23,42,.5);
+    padding:4px;
+    border-radius:12px;
+    border:1px solid rgba(148,163,184,.14);
+}
+
+.caja-modo-btn{
+    flex:1;
+    padding:8px 10px;
+    border:none;
+    border-radius:9px;
+    background:transparent;
+    color:#94a3b8;
+    font-weight:700;
+    font-size:13px;
+    cursor:pointer;
+    transition:all .15s ease;
+}
+
+.caja-modo-btn.activo{
+    background:linear-gradient(135deg, #4f7cff, #8b5cf6);
+    color:#fff;
+    box-shadow:0 3px 10px rgba(79,124,255,.3);
+}
+
+.caja-desglose{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:14px;
+}
+
+.caja-desglose-fila{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.caja-desglose-tit{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    color:#64748b;
+    min-width:92px;
+}
+
+.caja-chip{
+    font-size:12.5px;
+    color:#cbd5e1;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(148,163,184,.16);
+    padding:4px 10px;
+    border-radius:999px;
+}
+
+.caja-chip b{ color:#f8fafc; }
+.caja-chip-vacio{ color:#64748b; }
+
+.caja-lista-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:8px;
+}
+
+.caja-mov-cat.cat-egreso{  background:rgba(248,113,113,.18); color:#fca5a5; }
+.caja-mov-cat.cat-ingreso{ background:rgba(74,222,128,.16);  color:#86efac; }
+
+
+/* Panel global de Ventas (sección del sidebar) */
+.ventas-funciones{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.ventas-func-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px 16px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(148,163,184,.14);
+    transition:border-color .15s ease, transform .15s ease;
+}
+
+.ventas-func-card:hover{
+    border-color:var(--border-strong, rgba(79,124,255,.26));
+    transform:translateY(-2px);
+}
+
+.ventas-func-info{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    min-width:0;
+}
+
+.ventas-func-nombre{
+    font-size:15px;
+    color:#f8fafc;
+    font-weight:700;
+}
+
+.ventas-func-sub{
+    font-size:12.5px;
+    color:#94a3b8;
+}
+
+.ventas-func-lado{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex:0 0 auto;
+}
+
+.ventas-func-montos{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:2px;
+}
+
+.ventas-func-vendido{
+    font-size:16px;
+    font-weight:800;
+    color:#4ade80;
+}
+
+.ventas-func-saldo{
+    font-size:11.5px;
+    color:#94a3b8;
+}
+
+
+/* ============================================================
+   PARTE 3A: Boletos QR
+============================================================ */
+
+.caja-mov-qr{
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+    opacity:.7;
+    padding:4px;
+    transition:opacity .15s ease;
+}
+.caja-mov-qr:hover{ opacity:1; }
+
+.boletos-qr-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+    gap:14px;
+    margin-bottom:8px;
+}
+
+.boleto-qr-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    padding:14px;
+    border-radius:14px;
+    background:#ffffff;
+    border:1px solid rgba(148,163,184,.2);
+}
+
+.boleto-qr-img{
+    width:150px;
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.boleto-qr-img img,
+.boleto-qr-img canvas{ display:block; }
+
+.boleto-qr-folio{
+    font-weight:800;
+    color:#0f172a;
+    font-size:14px;
+    letter-spacing:.5px;
+}
+
+.boleto-qr-nombre{
+    font-size:12px;
+    color:#475569;
+    text-align:center;
+}
+
+@media print {
+    body * { visibility:hidden; }
+    #modalBoletosQR, #modalBoletosQR * { visibility:visible; }
+    #modalBoletosQR{
+        position:fixed;
+        inset:0;
+        background:#fff;
+        overflow:visible;
+    }
+    #modalBoletosQR .modal-acciones,
+    #modalBoletosQR .modal-evento-title{ display:none; }
+    .boletos-qr-grid{ grid-template-columns:repeat(3, 1fr); }
+}
+
+
+.caja-mov-wa{
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+    opacity:.75;
+    padding:4px;
+    transition:opacity .15s ease;
+}
+.caja-mov-wa:hover{ opacity:1; }
+
+
+/* ============================================================
+   Panel de Mensajería (outbox)
+============================================================ */
+
+.panel-header-acciones{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.msj-resumen{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+}
+
+.msj-chip{
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    border:1px solid rgba(148,163,184,.18);
+}
+.msj-chip-pend{ background:rgba(234,179,8,.12); color:#fde68a; }
+.msj-chip-env{ background:rgba(74,222,128,.12); color:#86efac; }
+.msj-chip-err{ background:rgba(248,113,113,.12); color:#fca5a5; }
+
+.msj-lista{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    max-height:50vh;
+    overflow-y:auto;
+}
+
+.msj-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(148,163,184,.14);
+    border-left-width:3px;
+}
+.msj-item-pend{ border-left-color:#eab308; }
+.msj-item-env{ border-left-color:#4ade80; }
+.msj-item-err{ border-left-color:#f87171; }
+
+.msj-item-info{ min-width:0; }
+.msj-item-top{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    color:#f8fafc;
+    font-size:14px;
+}
+.msj-item-tel{ color:#94a3b8; font-size:12.5px; font-weight:400; }
+.msj-item-sub{
+    font-size:12.5px;
+    color:#94a3b8;
+    margin-top:2px;
+}
+
+
+/* ============================================================
+   Panel del Bot (config + estado)
+============================================================ */
+
+.bot-estado{ margin-bottom:18px; }
+
+.bot-estado-fila{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 16px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(148,163,184,.16);
+    border-left-width:3px;
+}
+.bot-estado-ok{ border-left-color:#4ade80; }
+.bot-estado-warn{ border-left-color:#eab308; }
+.bot-estado-err{ border-left-color:#f87171; }
+.bot-estado-off{ border-left-color:#94a3b8; }
+
+.bot-estado-icono{ font-size:22px; }
+.bot-estado-sub{ font-size:12.5px; color:#94a3b8; margin-top:2px; }
+
+.bot-qr{ margin-top:12px; }
+.bot-qr-img{
+    display:inline-block;
+    background:#fff;
+    padding:12px;
+    border-radius:12px;
+}
+
+.bot-bloque{
+    margin-bottom:22px;
+    padding-top:6px;
+}
+.bot-bloque-titulo{
+    font-size:15px;
+    color:#f8fafc;
+    margin:0 0 10px;
+}
+
+.bot-ayuda{
+    font-size:12.5px;
+    color:#94a3b8;
+    margin:0 0 10px;
+}
+.bot-ayuda code{
+    background:rgba(148,163,184,.15);
+    padding:1px 6px;
+    border-radius:6px;
+    font-size:12px;
+}
+
+.bot-mensajes{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.bot-campo{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+.bot-campo-label{
+    font-size:13px;
+    font-weight:700;
+    color:#e2e8f0;
+}
+.bot-campo-key{
+    font-weight:400;
+    color:#94a3b8;
+    font-size:11.5px;
+}
+.bot-campo textarea{
+    width:100%;
+    resize:vertical;
+    font-family:inherit;
+    font-size:13.5px;
+    line-height:1.5;
+}
+
+
+/* Editor de funciones del bot */
+.bot-funciones{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:10px;
+}
+.bot-func-fila{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(148,163,184,.14);
+}
+.bot-func-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 0.7fr 1fr;
+    gap:8px;
+    flex:1;
+    min-width:0;
+}
+.bot-func-grid input{ min-width:0; }
+.bot-func-activa{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:12.5px;
+    color:#cbd5e1;
+    white-space:nowrap;
+}
+.bot-func-del{
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+    opacity:.7;
+}
+.bot-func-del:hover{ opacity:1; }
+
+@media (max-width: 640px){
+    .bot-func-grid{ grid-template-columns:1fr 1fr; }
+    .bot-func-fila{ flex-wrap:wrap; }
+}

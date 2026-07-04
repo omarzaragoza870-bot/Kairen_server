@@ -1,0 +1,31 @@
+/* =============================
+   BASE / VARIABLES / BODY
+   ============================= */
+
+:root{
+            --bg:#f4f7fb;
+            --sidebar:#050816;
+            --sidebar-2:#111827;
+            --primary:#4f63ff;
+            --primary-soft:#eef2ff;
+            --text:#111827;
+            --muted:#64748b;
+            --border:#e5e7eb;
+            --card:#ffffff;
+            --success:#16a34a;
+            --danger:#dc2626;
+            --danger-soft:#fee2e2;
+            --warning:#f59e0b;
+            --shadow:0 10px 30px rgba(15,23,42,.08);
+        }
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:var(--bg);
+            color:var(--text);
+        }

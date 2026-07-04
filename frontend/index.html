@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kairen</title>
+    <!-- CSS OFICIAL RC-1 -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/eventos.css">
+    <link rel="stylesheet" href="css/agenda.css">
+    <link rel="stylesheet" href="css/alpha-v1-1-operaciones.css">
+    <link rel="stylesheet" href="css/alpha-v1-2-nuevo-registro.css">
+    <link rel="stylesheet" href="css/funciones.css">
+    <link rel="stylesheet" href="css/modales.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/theme-dark-premium.css">
+    <link rel="stylesheet" href="css/ui-premium.css">
+    <link rel="stylesheet" href="css/sidebar-header-compact.css">
+    <link rel="stylesheet" href="css/mobile-real-drawer-compact.css">
+    <link rel="stylesheet" href="css/registros-engine.css">
+    <link rel="icon" type="image/png" href="assets/kairen-icon.png">
+    <script src="vendor/xlsx.full.min.js"></script>
+    <script src="vendor/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<button id="btnMenuMovil" class="btn-menu-movil" onclick="abrirMenuMovil()" title="Abrir menú">☰</button>
+
+<div id="overlayMenuMovil" class="overlay-menu-movil" onclick="cerrarMenuMovil()"></div>
+
+<div class="app">
+
+    <aside class="sidebar">
+            <button id="btnCerrarMenuMovil" class="btn-cerrar-menu-movil" onclick="cerrarMenuMovil()">✕</button>
+
+        <div class="sidebar-brand">
+            <img class="sidebar-brand-logo" src="assets/kairen-icon.png" alt="Kairen">
+            <span class="sidebar-brand-nombre" id="nombreSistemaSidebar">Kairen</span>
+            <button class="sidebar-brand-edit" onclick="abrirEditarNombreSistema()" title="Editar nombre">✏️</button>
+        </div>
+        <div class="sidebar-brand-bot">
+            <label class="switch-mini">
+                <input id="botSwitchSidebar" type="checkbox" checked onchange="toggleBotDesdeSidebar(this.checked)">
+                <span></span>
+            </label>
+        </div>
+
+        <div class="sidebar-section">Principal</div>
+        <div class="menu-item active" id="menuDashboard" onclick="mostrarSeccion('dashboard')">🏠 Dashboard</div>
+        <div class="menu-item" id="menuHoy" onclick="mostrarSeccion('hoy')">☀️ Hoy</div>
+        <div class="menu-item" id="menuEventos" onclick="mostrarSeccion('eventos')">🎟️ Eventos</div>
+        <div class="menu-item" id="menuFunciones" onclick="mostrarSeccion('funciones')">📅 Agenda</div>
+
+        <div class="sidebar-section">Operación</div>
+        <div class="menu-item" id="menuVentas" onclick="mostrarSeccion('ventas')">💰 Ventas</div>
+        <div class="menu-item" id="menuBot" onclick="mostrarSeccion('bot')">🤖 Bot</div>
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+            <div>
+                <div class="dashboard-title">
+                    <h1 id="nombreSistemaTitulo">Kairen</h1>
+                    <p>Resumen general</p>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="btn-secundario" onclick="abrirEditarNombreSistema()">
+                        ✏️ Editar nombre
+                    </button>
+                </div>
+            </div>
+
+            <div class="bot-control">
+                <div>
+                    <span class="bot-label">Estado del bot</span>
+                    <strong id="estadoBot">Cargando...</strong>
+                </div>
+
+                <label class="switch-mini" title="Cambiar estado del bot">
+                    <input
+                        type="checkbox"
+                        id="botSwitch"
+                        onchange="cambiarEstadoBot()">
+                    <span></span>
+                </label>
+            </div>
+        </div>
+
+        <section id="seccionDashboard" class="app-section">
+
+            <!-- ============================= -->
+            <!-- KPIs PRINCIPALES -->
+            <!-- ============================= -->
+            <section class="grid">
+                <div class="stat-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🎟️</span>
+                            <span class="card-title">Eventos</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="number" id="totalEventos">0</div>
+                        <div class="card-subtitle">Eventos registrados</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🕒</span>
+                            <span class="card-title">Funciones</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="number" id="totalFunciones">0</div>
+                        <div class="card-subtitle">Funciones programadas</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🎫</span>
+                            <span class="card-title">Boletos</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="number" id="totalBoletos">0</div>
+                        <div class="card-subtitle">Boletos disponibles</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🤖</span>
+                            <span class="card-title">Bot</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="number" id="estadoCardBot">--</div>
+                        <div class="card-subtitle">Estado actual</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================= -->
+            <!-- DASHBOARD EJECUTIVO -->
+            <!-- ============================= -->
+            <section class="dashboard-grid">
+
+                <div class="panel dashboard-widget dashboard-widget-large">
+                    <div class="panel-header">
+                        <div>
+                            <h2>📅 Próximos eventos</h2>
+                            <p class="panel-subtitle">
+                                Las siguientes funciones activas ordenadas por fecha.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="listaProximosEventos" class="dashboard-lista"></div>
+                </div>
+
+                <div class="panel dashboard-widget">
+                    <div class="panel-header">
+                        <div>
+                            <h2>🎫 Disponibilidad</h2>
+                            <p class="panel-subtitle">
+                                Boletos disponibles por categoría.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="dashboardDisponibilidad" class="dashboard-metricas"></div>
+                </div>
+
+                <div class="panel dashboard-widget">
+                    <div class="panel-header">
+                        <div>
+                            <h2>🎁 Promociones</h2>
+                            <p class="panel-subtitle">
+                                Descuentos configurados en funciones.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="dashboardPromociones" class="dashboard-promos"></div>
+                </div>
+
+                <div class="panel dashboard-widget">
+                    <div class="panel-header">
+                        <div>
+                            <h2>📝 Actividad reciente</h2>
+                            <p class="panel-subtitle">
+                                Resumen automático del estado actual.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="dashboardActividad" class="dashboard-actividad"></div>
+                </div>
+
+                <div class="panel dashboard-widget dashboard-widget-wide">
+                    <div class="panel-header">
+                        <div>
+                            <h2>⚡ Acciones rápidas</h2>
+                            <p class="panel-subtitle">
+                                Atajos para operar Kairen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="acciones-rapidas">
+                        <button
+                            class="btn-primary"
+                            onclick="abrirSelectorNuevoRegistro()">
+                            ➕ Nuevo registro
+                        </button>
+
+                        <button
+                            class="btn-secundario"
+                            onclick="mostrarSeccion('eventos')">
+                            🎟️ Ver eventos
+                        </button>
+
+                        <button
+                            class="btn-secundario"
+                            onclick="mostrarSeccion('funciones')">
+                            🕒 Ver funciones
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- ============================= -->
+        <!-- ALPHA v1.6: VISTA HOY -->
+        <!-- ============================= -->
+        <section id="seccionHoy" class="app-section oculto">
+
+            <div class="panel hoy-header">
+                <div>
+                    <h2 id="hoySaludo">Buenos días</h2>
+                    <p class="panel-subtitle" id="hoyFecha">Lo que tienes para hoy.</p>
+                </div>
+            </div>
+
+            <div class="panel hoy-bloque">
+                <h3 class="hoy-titulo">Resumen del día</h3>
+                <div id="hoyResumen" class="hoy-resumen"></div>
+            </div>
+
+            <div class="hoy-grid">
+                <div class="panel hoy-bloque">
+                    <h3 class="hoy-titulo">Próxima operación</h3>
+                    <div id="hoyProxima"></div>
+                </div>
+
+                <div class="panel hoy-bloque">
+                    <h3 class="hoy-titulo">Operaciones de hoy</h3>
+                    <div id="hoyOperaciones"></div>
+                </div>
+            </div>
+
+            <div class="panel hoy-bloque">
+                <h3 class="hoy-titulo">Pendientes de hoy</h3>
+                <div id="hoyPendientes"></div>
+            </div>
+
+            <div class="panel hoy-bloque">
+                <h3 class="hoy-titulo">Acciones rápidas</h3>
+                <div class="hoy-acciones">
+                    <button class="btn-primary" onclick="abrirSelectorNuevoRegistro()">➕ Nuevo registro</button>
+                    <button class="btn-secundario" onclick="mostrarSeccion('funciones')">📅 Agenda</button>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="seccionEventos" class="app-section oculto">
+
+            <!-- ============================= -->
+            <!-- RC-2 EVENTOS PRO -->
+            <!-- ============================= -->
+            <section class="eventos-pro">
+
+                <div class="panel eventos-pro-header">
+                    <div>
+                        <h2>🎟️ Eventos</h2>
+                        <p class="panel-subtitle">
+                            Administra tu cartelera, funciones y disponibilidad.
+                        </p>
+                    </div>
+
+                    <div class="panel-actions">
+                        <button
+                            class="btn-secundario"
+                            onclick="cargarEventos()">
+                            🔄 Actualizar
+                        </button>
+
+                        <button
+                            class="btn-primary"
+                            onclick="abrirModalNuevoEvento()">
+                            ➕ Nuevo registro
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BARRA DE FILTROS -->
+                <div class="panel eventos-toolbar-pro eventos-toolbar-minimal">
+
+                    <div class="eventos-filtros-grid eventos-filtros-minimal">
+                        <input
+                            id="buscadorEventos"
+                            placeholder="🔍 Buscar evento..."
+                            oninput="cargarEventos()">
+
+                        <select
+                            id="filtroEstadoEventos"
+                            onchange="cargarEventos()">
+                            <option value="todos">Todos los estados</option>
+                            <option value="activos">Activos</option>
+                            <option value="inactivos">Inactivos</option>
+                        </select>
+
+                        <select
+                            id="ordenEventos"
+                            onchange="cargarEventos()">
+                            <option value="recientes">Más recientes</option>
+                            <option value="nombre">Nombre A-Z</option>
+                            <option value="funciones">Más funciones</option>
+                            <option value="boletos">Más boletos</option>
+                        </select>
+                    </div>
+
+                    <div class="eventos-vistas">
+                        <button
+                            id="btnVistaTarjetas"
+                            title="Vista tarjetas"
+                            class="btn-secundario vista-activa"
+                            onclick="cambiarVistaEventos('tarjetas')">
+                            ▦
+                        </button>
+
+                        <button
+                            id="btnVistaTabla"
+                            title="Vista tabla"
+                            class="btn-secundario"
+                            onclick="cambiarVistaEventos('tabla')">
+                            ☰
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- RESUMEN DEL MODULO EVENTOS -->
+                <div class="eventos-resumen-grid">
+                    <div class="evento-resumen-card">
+                        <span>🎟️</span>
+                        <div>
+                            <strong id="eventosProTotal">0</strong>
+                            <small>Total eventos</small>
+                        </div>
+                    </div>
+
+                    <div class="evento-resumen-card">
+                        <span>🟢</span>
+                        <div>
+                            <strong id="eventosProActivos">0</strong>
+                            <small>Eventos activos</small>
+                        </div>
+                    </div>
+
+                    <div class="evento-resumen-card">
+                        <span>🕒</span>
+                        <div>
+                            <strong id="eventosProFunciones">0</strong>
+                            <small>Funciones</small>
+                        </div>
+                    </div>
+
+                    <div class="evento-resumen-card">
+                        <span>🎫</span>
+                        <div>
+                            <strong id="eventosProBoletos">0</strong>
+                            <small>Boletos disponibles</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LISTA / TABLA -->
+                <div
+                    id="listaEventos"
+                    class="eventos-lista-pro">
+                </div>
+
+            </section>
+
+        </section>
+
+        <section id="seccionFunciones" class="app-section oculto">
+
+            <!-- ============================= -->
+            <!-- ALPHA v1: AGENDA PREMIUM -->
+            <!-- ============================= -->
+            <section class="agenda-premium">
+
+                <div class="panel agenda-header">
+                    <div>
+                        <h2>📅 Agenda</h2>
+                        <p class="panel-subtitle">
+                            Visualiza tus funciones y activaciones en calendario.
+                        </p>
+                    </div>
+
+                    <div class="agenda-header-actions">
+                        <button class="btn-secundario" onclick="irMesActualAgenda()">
+                            Hoy
+                        </button>
+
+                        <button
+                            class="btn-secundario btn-icon"
+                            onclick="cambiarMesAgenda(-1)"
+                            title="Mes anterior">
+                            ‹
+                        </button>
+
+                        <button
+                            class="btn-secundario btn-icon"
+                            onclick="cambiarMesAgenda(1)"
+                            title="Mes siguiente">
+                            ›
+                        </button>
+
+                        <button
+                            class="btn-primary"
+                            onclick="abrirSelectorNuevoRegistro()">
+                            ➕ Nuevo registro
+                        </button>
+                    </div>
+                </div>
+
+                <div class="agenda-layout">
+
+                    <div class="panel agenda-calendario-panel">
+
+                        <div class="agenda-calendario-top">
+                            <div>
+                                <h3 id="agendaTituloMes">Mes</h3>
+                                <p class="panel-subtitle">
+                                    Los días con función se marcan con máscaras de teatro.
+                                </p>
+                            </div>
+
+                            <div class="agenda-leyenda">
+                                <span><i class="leyenda-dot agenda-activo"></i> Activo</span>
+                                <span><i class="leyenda-dot agenda-pausado"></i> Pausado</span>
+                                <span><i class="leyenda-dot agenda-sin-boletos"></i> Sin boletos</span>
+                            </div>
+                        </div>
+
+                        <div class="agenda-dias-semana">
+                            <span>LUN</span>
+                            <span>MAR</span>
+                            <span>MIÉ</span>
+                            <span>JUE</span>
+                            <span>VIE</span>
+                            <span>SÁB</span>
+                            <span>DOM</span>
+                        </div>
+
+                        <div id="agendaCalendario" class="agenda-calendario"></div>
+
+                    </div>
+
+                    <aside class="panel agenda-resumen-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h2>🎭 Resumen</h2>
+                                <p class="panel-subtitle">
+                                    Vista rápida del mes seleccionado.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="agenda-resumen-grid">
+                            <div class="agenda-resumen-card">
+                                <strong id="agendaTotalFunciones">0</strong>
+                                <span>Funciones</span>
+                            </div>
+
+                            <div class="agenda-resumen-card">
+                                <strong id="agendaTotalEventos">0</strong>
+                                <span>Eventos</span>
+                            </div>
+
+                            <div class="agenda-resumen-card">
+                                <strong id="agendaTotalBoletos">0</strong>
+                                <span>Boletos</span>
+                            </div>
+                        </div>
+
+                        <div class="agenda-proximas">
+                            <h3>Próximas funciones</h3>
+                            <div id="agendaProximasFunciones"></div>
+                        </div>
+                    </aside>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        
+
+        <section id="seccionVentas" class="app-section oculto">
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>💰 Ventas</h2>
+                        <p class="panel-subtitle">Caja y ventas de todas las funciones.</p>
+                    </div>
+                    <div class="panel-header-acciones">
+                        <button class="btn-secundario" onclick="abrirMensajeria()">📨 Mensajería</button>
+                        <button class="btn-secundario" onclick="exportarVentasExcel()">📄 Exportar Excel</button>
+                    </div>
+                </div>
+
+                <div id="ventasResumenGlobal" class="caja-resumen"></div>
+
+                <div class="caja-lista-titulo">Funciones</div>
+                <div id="ventasFunciones" class="ventas-funciones"></div>
+            </div>
+        </section>
+        <section id="seccionBot" class="app-section oculto">
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>🤖 Bot de WhatsApp</h2>
+                        <p class="panel-subtitle">Conexión y mensajes del bot, todo desde aquí.</p>
+                    </div>
+                </div>
+
+                <div id="botEstado" class="bot-estado"></div>
+
+                <div class="bot-bloque">
+                    <h3 class="bot-bloque-titulo">💲 Precios</h3>
+                    <div class="form-grid">
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Precio normal</label>
+                            <input id="botPrecioNormal" type="number" min="0">
+                        </div>
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Precio preventa</label>
+                            <input id="botPrecioPreventa" type="number" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bot-bloque">
+                    <h3 class="bot-bloque-titulo">🎭 Funciones</h3>
+                    <p class="bot-ayuda">Agrega o quita las funciones que el bot ofrece. "Hoja" es la pestaña de Google Sheets donde se guardan (opcional).</p>
+                    <div id="botFunciones" class="bot-funciones"></div>
+                    <button class="btn-secundario btn-mini" onclick="agregarFuncionBot()">➕ Agregar función</button>
+                </div>
+
+                <div class="bot-bloque">
+                    <h3 class="bot-bloque-titulo">💬 Mensajes</h3>
+                    <p class="bot-ayuda">Usa variables entre llaves. Ej: <code>{nombre}</code>, <code>{evento}</code>, <code>{fecha}</code>, <code>{folios}</code>, <code>{precio_normal}</code>.</p>
+                    <div id="botMensajes" class="bot-mensajes"></div>
+                </div>
+
+                <div class="modal-acciones modal-acciones-premium">
+                    <button class="btn-secundario" onclick="renderPanelBot()">🔄 Recargar</button>
+                    <button class="btn-primary" onclick="guardarConfigBot()">💾 Guardar cambios</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</div>
+
+<div id="modalNuevoRegistro" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div class="modal-evento-icon">📅</div>
+                <div>
+                    <h2>Nuevo registro</h2>
+                    <p class="modal-description">
+                        ¿Qué quieres organizar hoy?
+                    </p>
+                </div>
+            </div>
+
+            <div class="nuevo-registro-page">
+                <div class="registro-grupo">
+                    <h3>⭐ Función (boletaje)</h3>
+                    <div class="registro-grid registro-grid-2">
+                        <button class="registro-opcion tipo-funcion" onclick="seleccionarTipoRegistro('funcion')">
+                            <span>🎭</span><div><strong>Función</strong><small>Obra o presentación abierta al público.</small></div><b>→</b>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="registro-grupo">
+                    <div class="registro-grupo-header">
+                        <h3>⚙ Operación</h3>
+                        <button class="btn-secundario btn-agregar-tipo" onclick="agregarTipoRegistro()">➕ Agregar tipo</button>
+                    </div>
+                    <div id="selectorTiposOperacion" class="registro-grid registro-grid-4"></div>
+                </div>
+
+                <div class="registro-info">
+                    <span>ℹ️</span>
+                    <div>
+                        <strong>Un registro puede tener más de una fecha</strong>
+                        <p>Podrás agregar varias fechas, horarios, sedes, recursos y tareas después.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-acciones modal-acciones-premium">
+                <button class="btn-secundario" onclick="cerrarModalNuevoRegistro()">
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="modalRegistroGenerico" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div id="registroGenericoIcono" class="modal-evento-icon">📌</div>
+
+                <div>
+                    <h2 id="registroGenericoTitulo">Nuevo registro</h2>
+                    <p id="registroGenericoDescripcion" class="modal-description">
+                        Completa la información básica del registro.
+                    </p>
+                </div>
+            </div>
+
+            <input id="registroGenericoTipo" type="hidden">
+
+            <div class="form-grid">
+
+                <input
+                    id="registroGenericoNombre"
+                    placeholder="Nombre del registro">
+
+                <input
+                    id="registroGenericoLugar"
+                    placeholder="Lugar o sede">
+
+                <input
+                    id="registroGenericoFecha"
+                    type="date"
+                    placeholder="Fecha">
+
+                <input
+                    id="registroGenericoHora"
+                    type="time"
+                    placeholder="Hora">
+
+                <input
+                    id="registroGenericoContacto"
+                    placeholder="Contacto">
+
+                <input
+                    id="registroGenericoTelefono"
+                    placeholder="Teléfono">
+
+                <textarea
+                    id="registroGenericoNotas"
+                    class="input-full"
+                    rows="4"
+                    placeholder="Notas, pendientes o detalles importantes"></textarea>
+
+            </div>
+
+            <div class="rec-bloque">
+                <label class="rec-label" for="registroGenericoRepeticion">🔁 Repetición</label>
+                <select id="registroGenericoRepeticion" onchange="togglePanelRecurrencia()">
+                    <option value="no">No repetir</option>
+                    <option value="semanal">Semanal (cada semana)</option>
+                    <option value="mensual">Mensual (cada mes)</option>
+                    <option value="personalizado">Personalizado…</option>
+                </select>
+
+                <div id="recPanelPersonalizado" class="rec-panel oculto">
+
+                    <div class="rec-fila">
+                        <span>Cada</span>
+                        <input id="recIntervalo" type="number" min="1" value="1" class="rec-intervalo">
+                        <span>semana(s), en:</span>
+                    </div>
+
+                    <div class="rec-dias">
+                        <label class="rec-dia"><input type="checkbox" class="rec-dia-chk" value="1"><span>L</span></label>
+                        <label class="rec-dia"><input type="checkbox" class="rec-dia-chk" value="2"><span>M</span></label>
+                        <label class="rec-dia"><input type="checkbox" class="rec-dia-chk" value="3"><span>M</span></label>
+                        <label class="rec-dia"><input type="checkbox" class="rec-dia-chk" value="4"><span>J</span></label>
+                        <label class="rec-dia"><input type="checkbox" class="rec-dia-chk" value="5"><span>V</span></label>
+                        <label class="rec-dia"><input type="checkbox" class="rec-dia-chk" value="6"><span>S</span></label>
+                        <label class="rec-dia"><input type="checkbox" class="rec-dia-chk" value="0"><span>D</span></label>
+                    </div>
+
+                    <div class="rec-fin">
+                        <span class="rec-fin-titulo">Termina</span>
+                        <label class="rec-fin-op">
+                            <input type="radio" name="recFin" value="nunca" checked onchange="togglePanelRecurrencia()">
+                            Nunca
+                        </label>
+                        <label class="rec-fin-op">
+                            <input type="radio" name="recFin" value="fecha" onchange="togglePanelRecurrencia()">
+                            En fecha
+                            <input id="recFinFecha" type="date" class="rec-fin-input" disabled>
+                        </label>
+                        <label class="rec-fin-op">
+                            <input type="radio" name="recFin" value="conteo" onchange="togglePanelRecurrencia()">
+                            Después de
+                            <input id="recFinConteo" type="number" min="1" value="10" class="rec-fin-input rec-fin-conteo" disabled>
+                            repeticiones
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="registro-preview-box">
+                <span id="registroGenericoPreviewIcono">📌</span>
+
+                <div>
+                    <strong id="registroGenericoPreviewTitulo">Motor de Registros</strong>
+                    <p>
+                        Este registro se guardará en Agenda con icono, tipo, timeline y checklist base.
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-acciones modal-acciones-premium">
+                <button
+                    class="btn-secundario"
+                    onclick="cerrarModalRegistroGenerico()">
+                    Cancelar
+                </button>
+
+                <button
+                    id="btnGuardarRegistroGenerico"
+                    class="btn-primary"
+                    onclick="guardarRegistroGenerico()">
+                    Guardar registro
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="modalNuevoEvento" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div class="modal-evento-icon">🎟️</div>
+
+                <div>
+                    <h2>Nuevo Evento</h2>
+                    <p class="modal-description">
+                        Crea un evento con su primera función.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="nombre"
+                    placeholder="Nombre del evento">
+
+                <input
+                    id="lugar"
+                    placeholder="Lugar">
+
+                <div class="input-con-upload">
+                    <input
+                        id="imagen"
+                        placeholder="URL de imagen del evento">
+                    <label class="input-upload-icono" title="Subir imagen">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2"/></svg>
+                        <input type="file" accept="image/*" onchange="subirImagenEvento(this, 'imagen')" hidden>
+                    </label>
+                </div>
+
+                <input
+                    id="fecha"
+                    type="date">
+
+                <input
+                    id="hora"
+                    type="time">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-general">
+                <div>
+                    <h3>🎫 General</h3>
+                    <p>Zona base del evento. Siempre estará disponible.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="generalPreventa"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="generalPrecio"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="generalBoletos"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-preferente">
+                <div>
+                    <h3>🎟️ Preferente</h3>
+                    <p>Activa esta zona si el evento la manejará.</p>
+                </div>
+
+                <label class="switch-mini">
+                    <input
+                            type="checkbox"
+                            id="activarPreferente"
+                            onchange="toggleCamposCategoria('activarPreferente', 'camposPreferente')">
+                    <span></span>
+                </label>
+            </div>
+
+                <div id="camposPreferente" class="form-grid campos-opcionales oculto">
+
+                <input
+                    id="preferentePreventa"
+                    type="number"
+                    placeholder="Preventa">    
+
+                <input
+                    id="preferentePrecio"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="preferenteBoletos"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-vip">
+                <div>
+                    <h3>⭐ VIP</h3>
+                    <p>Activa esta zona si venderás boletos VIP.</p>
+                </div>
+
+                <label class="switch-mini">
+                    <input
+                        type="checkbox"
+                        id="activarVip"
+                        onchange="toggleCamposCategoria('activarVip', 'camposVip')">
+                    <span></span>
+                </label>
+            </div>
+
+                <div id="camposVip" class="form-grid campos-opcionales oculto">
+
+                <input
+                    id="vipPreventa"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="vipPrecio"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="vipBoletos"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <hr>
+
+<div class="categoria-header categoria-descuentos">
+    <div>
+        <h3>🎁 Descuentos</h3>
+        <p>Activa esta sección si manejarás códigos promocionales.</p>
+    </div>
+
+    <label class="switch-mini">
+        <input
+            type="checkbox"
+            id="activarDescuentos"
+            onchange="toggleCamposCategoria('activarDescuentos', 'camposDescuentos')">
+        <span></span>
+    </label>
+</div>
+
+<div id="camposDescuentos" class="campos-opcionales oculto">
+
+    <div class="form-grid">
+
+        <input
+            id="codigoDescuento"
+            placeholder="Código">
+
+        <select id="tipoDescuento">
+
+            <option value="porcentaje">
+                %
+            </option>
+
+            <option value="monto">
+                $
+            </option>
+
+        </select>
+
+        <input
+            id="valorDescuento"
+            type="number"
+            placeholder="Valor">
+
+    </div>
+
+    <button
+        class="btn-secundario"
+        type="button"
+        onclick="agregarDescuentoTemp()">
+
+        + Agregar descuento
+
+    </button>
+
+    <div id="listaDescuentos"></div>
+
+</div>
+            <div class="modal-acciones modal-acciones-premium">
+
+                <button
+                    class="btn-secundario"
+                    onclick="cerrarModalNuevoEvento()">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    class="btn-primary"
+                    onclick="crearEvento(this)">
+
+                    Guardar Evento
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="modalFuncion" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div class="modal-evento-icon">🕒</div>
+
+                <div>
+                    <h2>Agregar función</h2>
+                    <p class="modal-description">
+                        Agrega una nueva fecha con sus zonas y precios.
+                    </p>
+                </div>
+            </div>
+
+            <input id="eventoIdFuncion" type="hidden">
+
+            <div class="form-grid">
+
+                <input
+                    id="fechaFuncion"
+                    type="date">
+
+                <input
+                    id="horaFuncion"
+                    type="time">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-general">
+                <div>
+                    <h3>🎫 General</h3>
+                    <p>Zona base de esta función.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="generalPreventaFuncion"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="generalPrecioFuncion"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="generalBoletosFuncion"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-preferente">
+                <div>
+                    <h3>🎟️ Preferente</h3>
+                    <p>Activa esta zona si esta función la manejará.</p>
+                </div>
+
+                <label class="switch-mini">
+                    <input type="checkbox" id="activarPreferenteFuncion">
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="preferentePreventaFuncion"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="preferentePrecioFuncion"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="preferenteBoletosFuncion"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-vip">
+                <div>
+                    <h3>⭐ VIP</h3>
+                    <p>Activa esta zona si venderás boletos VIP.</p>
+                </div>
+
+                <label class="switch-mini">
+                    <input type="checkbox" id="activarVipFuncion">
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="vipPreventaFuncion"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="vipPrecioFuncion"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="vipBoletosFuncion"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <div class="modal-acciones modal-acciones-premium">
+
+                <button
+                    class="btn-secundario"
+                    onclick="cerrarModalFuncion()">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    class="btn-primary"
+                    onclick="guardarFuncion(this)">
+
+                    Guardar función
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="modalEditarFuncion" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div class="modal-evento-icon">✏️</div>
+
+                <div>
+                    <h2>Editar función</h2>
+                    <p class="modal-description">
+                        Nombre, lugar, fecha, precios y zonas.
+                    </p>
+                </div>
+            </div>
+
+            <input id="editarEventoId" type="hidden">
+            <input id="editarFuncionId" type="hidden">
+
+            <div class="form-grid">
+                <input id="editarFuncNombre" placeholder="Nombre del evento">
+                <input id="editarFuncLugar" placeholder="Lugar">
+                <div class="input-con-upload">
+                    <input id="editarFuncImagen" placeholder="URL de imagen del evento">
+                    <label class="input-upload-icono" title="Subir imagen">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2"/></svg>
+                        <input type="file" accept="image/*" onchange="subirImagenEvento(this, 'editarFuncImagen')" hidden>
+                    </label>
+                </div>
+            </div>
+            <img id="editarFuncImagenPreview" class="evento-imagen-preview" style="display:none" alt="Vista previa">
+
+            <div class="form-grid">
+
+                <input
+                    id="editarFecha"
+                    type="date">
+
+                <input
+                    id="editarHora"
+                    type="time">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-general">
+                <div>
+                    <h3>🎫 General</h3>
+                    <p>Zona principal de la función.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="editarGeneralPreventa"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="editarGeneralPrecio"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="editarGeneralBoletos"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-preferente">
+                <div>
+                    <h3>🎟️ Preferente</h3>
+                    <p>Zona preferente.</p>
+                </div>
+
+                <label class="switch-mini">
+                    <input type="checkbox" id="editarPreferenteActiva">
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="editarPreferentePreventa"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="editarPreferentePrecio"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="editarPreferenteBoletos"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <hr>
+
+            <div class="categoria-header categoria-vip">
+                <div>
+                    <h3>⭐ VIP</h3>
+                    <p>Zona VIP.</p>
+                </div>
+
+                <label class="switch-mini">
+                    <input type="checkbox" id="editarVipActiva">
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="form-grid">
+
+                <input
+                    id="editarVipPreventa"
+                    type="number"
+                    placeholder="Preventa">
+
+                <input
+                    id="editarVipPrecio"
+                    type="number"
+                    placeholder="Precio Regular">
+
+                <input
+                    id="editarVipBoletos"
+                    type="number"
+                    placeholder="Boletos Disponibles">
+
+            </div>
+
+            <div class="modal-acciones modal-acciones-premium">
+
+                <button
+                    class="btn-secundario"
+                    onclick="cerrarEditarFuncion()">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    class="btn-primary"
+                    onclick="guardarEdicionFuncion(this)">
+
+                    Guardar cambios
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="modalEditarNombreSistema" class="modal oculto">
+    <div class="modal-contenido">
+        <h2>Editar nombre del sistema</h2>
+
+        <input id="inputNombreSistema" placeholder="Nombre del sistema">
+
+        <div class="modal-acciones">
+            <button onclick="guardarNombreSistema(this)">Guardar</button>
+            <button class="btn-secundario" onclick="cerrarEditarNombreSistema()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================= -->
+<!-- MODAL / DRAWER GESTION DESCUENTOS -->
+<!-- ============================= -->
+<div id="modalGestionDescuentos" class="modal oculto">
+    <div class="drawer-descuentos">
+
+        <div class="drawer-header">
+            <div>
+                <h2>🎁 Descuentos</h2>
+                <p id="drawerDescuentosSubtitulo" class="modal-description">
+                    Administra los códigos promocionales de esta función.
+                </p>
+            </div>
+
+            <button
+                class="btn-secundario btn-icon"
+                onclick="cerrarGestionDescuentos()"
+                title="Cerrar">
+                ✕
+            </button>
+        </div>
+
+        <input id="gestionDescuentoEventoId" type="hidden">
+        <input id="gestionDescuentoFuncionId" type="hidden">
+
+        <div class="drawer-toolbar">
+            <div class="drawer-status">
+                <span>Estado</span>
+                <strong id="drawerDescuentosEstado">Activo</strong>
+            </div>
+
+            <button
+                class="btn-primary"
+                onclick="abrirAgregarDescuentoDesdeGestion()">
+                + Agregar descuento
+            </button>
+        </div>
+
+        <div
+            id="drawerListaDescuentos"
+            class="drawer-lista-descuentos">
+        </div>
+
+    </div>
+</div>
+
+<div id="modalAgregarDescuento" class="modal oculto">
+    <div class="modal-contenido">
+
+        <h2>Agregar descuento</h2>
+
+        <p class="modal-description">
+            Agrega un código promocional a esta función.
+        </p>
+
+        <input id="descuentoEventoId" type="hidden">
+        <input id="descuentoFuncionId" type="hidden">
+
+        <input
+            id="nuevoCodigoDescuento"
+            placeholder="Código">
+
+        <select id="nuevoTipoDescuento">
+            <option value="porcentaje">%</option>
+            <option value="monto">$</option>
+        </select>
+
+        <input
+            id="nuevoValorDescuento"
+            type="number"
+            placeholder="Valor">
+
+        <div class="modal-acciones">
+            <button
+                class="btn-primary"
+                onclick="guardarDescuentoGuardado(this)">
+                Guardar descuento
+            </button>
+
+            <button
+                class="btn-secundario"
+                onclick="cerrarModalAgregarDescuento()">
+                Cancelar
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalConfirmacion" class="modal oculto">
+    <div class="modal-contenido">
+        <h2 id="confirmacionTitulo">Confirmar acción</h2>
+
+        <p id="confirmacionMensaje" class="modal-description">
+            ¿Seguro que quieres continuar?
+        </p>
+
+        <div class="modal-acciones">
+            <button
+                id="btnConfirmarAccion"
+                class="btn-danger">
+                Eliminar
+            </button>
+
+            <button
+                class="btn-secundario"
+                onclick="cerrarConfirmacion()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- PROMPT REUTILIZABLE (editar texto) -->
+<div id="modalPrompt" class="modal oculto">
+    <div class="modal-contenido">
+        <h2 id="promptTitulo">Editar</h2>
+
+        <input
+            id="promptInput"
+            type="text"
+            placeholder="Escribe aquí...">
+
+        <div class="modal-acciones">
+            <button
+                id="btnPromptGuardar"
+                class="btn-primary">
+                Guardar
+            </button>
+
+            <button
+                class="btn-secundario"
+                onclick="cerrarPrompt()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ALPHA v1.11/v1.12: FORMULARIO GENÉRICO (varios campos) -->
+<div id="modalFormulario" class="modal oculto">
+    <div class="modal-contenido">
+        <h2 id="formularioTitulo">Formulario</h2>
+
+        <div id="formularioCampos"></div>
+
+        <div class="modal-acciones">
+            <button id="btnGuardarFormulario" class="btn-primary">Guardar</button>
+            <button class="btn-secundario" onclick="cerrarFormulario()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- DRAWER AGENDA DIA -->
+<div id="modalAgendaDia" class="modal oculto modal-drawer-backdrop">
+    <div class="drawer-agenda-dia">
+
+        <div class="drawer-header">
+            <div>
+                <h2 id="agendaDrawerTitulo">Agenda</h2>
+                <p id="agendaDrawerSubtitulo" class="modal-description">
+                    Funciones programadas para este día.
+                </p>
+            </div>
+
+            <button
+                class="btn-secundario btn-icon"
+                onclick="cerrarAgendaDia()"
+                title="Cerrar">
+                ✕
+            </button>
+        </div>
+
+        <div id="agendaDrawerFunciones" class="agenda-drawer-lista"></div>
+
+    </div>
+</div>
+
+<div id="toast" class="toast oculto">
+
+    <span
+        id="toastIcon"
+        class="toast-icon">
+
+        ✅
+
+    </span>
+
+    <span
+        id="toastMensaje"
+        class="toast-message">
+
+    </span>
+
+</div>
+
+<div id="modalCaja" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div class="modal-evento-icon">💵</div>
+                <div>
+                    <h2>Caja</h2>
+                    <p id="cajaSubtitulo" class="modal-description"></p>
+                </div>
+            </div>
+
+            <div id="cajaResumen" class="caja-resumen"></div>
+            <div id="cajaDesglose" class="caja-desglose"></div>
+
+            <div class="caja-modo">
+                <button type="button" class="caja-modo-btn activo" data-modo="venta" onclick="cambiarModoCaja('venta')">🎫 Venta</button>
+                <button type="button" class="caja-modo-btn" data-modo="gasto" onclick="cambiarModoCaja('gasto')">🛒 Gasto</button>
+                <button type="button" class="caja-modo-btn" data-modo="ingreso" onclick="cambiarModoCaja('ingreso')">➕ Ingreso</button>
+            </div>
+
+            <div class="caja-form">
+
+                <div id="cajaCamposVenta">
+                    <div class="form-grid">
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Boleto</label>
+                            <select id="cajaCategoria" onchange="actualizarTotalCaja()"></select>
+                        </div>
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Cantidad</label>
+                            <input id="cajaCantidad" type="number" min="1" value="1" oninput="actualizarTotalCaja()">
+                        </div>
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Total</label>
+                            <input id="cajaTotal" type="text" class="caja-total-input" value="$0" readonly>
+                        </div>
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Método de pago</label>
+                            <select id="cajaMetodo">
+                                <option value="efectivo">💵 Efectivo</option>
+                                <option value="transferencia">🏦 Transferencia</option>
+                                <option value="tarjeta">💳 Tarjeta</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Nombre del comprador</label>
+                            <input id="cajaComprador" placeholder="Ej. Juan Pérez">
+                        </div>
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Teléfono (WhatsApp)</label>
+                            <input id="cajaTelefono" type="tel" inputmode="numeric" placeholder="Ej. 5512345678">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cajaCamposMovimiento" class="oculto">
+                    <div class="form-grid">
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Concepto</label>
+                            <input id="cajaConcepto" placeholder="Ej. Renta de sonido">
+                        </div>
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Monto</label>
+                            <input id="cajaMonto" type="number" min="0" placeholder="0">
+                        </div>
+                        <div class="caja-campo">
+                            <label class="caja-campo-label">Método de pago</label>
+                            <select id="cajaMetodoMov">
+                                <option value="efectivo">💵 Efectivo</option>
+                                <option value="transferencia">🏦 Transferencia</option>
+                                <option value="tarjeta">💳 Tarjeta</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary caja-btn-venta" onclick="registrarCaja(this)">➕ Registrar</button>
+            </div>
+
+            <div class="caja-lista-header">
+                <div class="caja-lista-titulo">Movimientos</div>
+                <button class="btn-secundario btn-mini" onclick="exportarCajaCSV()">📄 Exportar CSV</button>
+            </div>
+            <div id="cajaLista" class="caja-lista"></div>
+
+            <div class="modal-acciones modal-acciones-premium">
+                <button class="btn-secundario" onclick="cerrarCaja()">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="modalBoletosQR" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div class="modal-evento-icon">🎫</div>
+                <div>
+                    <h2>Boletos / QR</h2>
+                    <p id="boletosQRTitulo" class="modal-description"></p>
+                </div>
+            </div>
+
+            <div id="boletosQRContenido" class="boletos-qr-grid"></div>
+
+            <div class="modal-acciones modal-acciones-premium">
+                <button class="btn-secundario" onclick="cerrarBoletosQR()">Cerrar</button>
+                <button class="btn-primary" onclick="imprimirBoletosQR()">🖨️ Imprimir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="modalMensajeria" class="modal oculto">
+    <div class="modal-contenido modal-evento modal-evento-premium">
+        <div class="modal-evento-scroll">
+
+            <div class="modal-evento-title">
+                <div class="modal-evento-icon">📨</div>
+                <div>
+                    <h2>Mensajería</h2>
+                    <p class="modal-description">Confirmaciones enviadas por WhatsApp (vía el bot).</p>
+                </div>
+            </div>
+
+            <div id="mensajeriaResumen" class="msj-resumen"></div>
+            <div id="mensajeriaLista" class="msj-lista"></div>
+
+            <div class="modal-acciones modal-acciones-premium">
+                <button class="btn-secundario" onclick="cerrarMensajeria()">Cerrar</button>
+                <button class="btn-primary" onclick="renderMensajeria()">🔄 Actualizar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS OFICIALES RC-1 -->
+<script src="js/state.js"></script>
+
+
+<script src="js/dashboard.js"></script>
+<script src="js/agenda.js"></script>
+<script src="js/registros.js"></script>
+
+
+
+
+<script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/configuracion.js"></script>
+<script src="js/descuentos.js"></script>
+<script src="js/funciones.js"></script>
+<script src="js/eventos.js"></script>
+<script src="js/caja.js"></script>
+<script src="js/bot.js"></script>
+<script src="js/modales.js"></script>
+<script src="js/app.js"></script>
+
+<script src="js/mobile-menu.js"></script>
+<script src="js/sidebar-controls.js"></script>
+</body>
+</html>

@@ -1,0 +1,1414 @@
+{
+  "configuracion": {
+    "nombreSistema": "Kairen",
+    "botActivo": true
+  },
+  "eventos": [
+    {
+      "id": 1782170890834,
+      "nombre": "Opcion Multiple",
+      "lugar": "varsovia",
+      "imagen": "",
+      "activo": true,
+      "funciones": [
+        {
+          "id": 1,
+          "fecha": "2026-05-25",
+          "hora": "20:30",
+          "categorias": {
+            "general": {
+              "preventa": 300,
+              "precio": 450,
+              "boletos": 100
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "precio": 450,
+          "boletosDisponibles": 100,
+          "activa": true
+        }
+      ]
+    },
+    {
+      "id": 1782171050625,
+      "nombre": "sencillamente hipocrita",
+      "lugar": "varsovia",
+      "imagen": "",
+      "activo": true,
+      "funciones": [
+        {
+          "id": 1,
+          "fecha": "2025-09-20",
+          "hora": "20:00",
+          "categorias": {
+            "general": {
+              "preventa": 300,
+              "precio": 400,
+              "boletos": 70
+            },
+            "preferente": {
+              "activa": true,
+              "preventa": 400,
+              "precio": 600,
+              "boletos": 20
+            },
+            "vip": {
+              "activa": true,
+              "preventa": 600,
+              "precio": 800,
+              "boletos": 10
+            }
+          },
+          "precio": 400,
+          "boletosDisponibles": 100,
+          "activa": true
+        }
+      ]
+    },
+    {
+      "id": 1782251310287,
+      "nombre": "comedia la experiencia",
+      "lugar": "varsovia",
+      "imagen": "/uploads/1782936565526-6azppa.jpg",
+      "activo": true,
+      "funciones": [
+        {
+          "id": 1,
+          "fecha": "2002-03-20",
+          "hora": "14:03",
+          "categorias": {
+            "general": {
+              "preventa": 300,
+              "precio": 450,
+              "boletos": 30
+            },
+            "preferente": {
+              "activa": true,
+              "preventa": 400,
+              "precio": 600,
+              "boletos": 10
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "precio": 450,
+          "boletosDisponibles": 40,
+          "activa": true
+        }
+      ]
+    },
+    {
+      "id": 1782258075713,
+      "nombre": "asdsa",
+      "lugar": "adsadsada",
+      "imagen": "",
+      "activo": true,
+      "funciones": []
+    },
+    {
+      "id": 1782258572586,
+      "nombre": "dedede",
+      "lugar": "frasds",
+      "imagen": "",
+      "activo": true,
+      "funciones": [
+        {
+          "id": 1,
+          "fecha": "2026-07-03",
+          "hora": "10:00",
+          "categorias": {
+            "general": {
+              "preventa": 300,
+              "precio": 450,
+              "boletos": 0
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "precio": 450,
+          "boletosDisponibles": 0,
+          "activa": true,
+          "movimientos": [
+            {
+              "id": 1783032065234,
+              "tipo": "venta",
+              "metodoPago": "efectivo",
+              "concepto": "Venta 1 x general",
+              "notas": "",
+              "fecha": "2026-07-02T22:41:05.234Z",
+              "categoria": "general",
+              "cantidad": 1,
+              "precioUnitario": 300,
+              "comprador": "alex",
+              "folios": [
+                "GEN-001"
+              ],
+              "monto": 300
+            },
+            {
+              "id": 1783032121016,
+              "tipo": "venta",
+              "metodoPago": "efectivo",
+              "concepto": "Venta 2 x general",
+              "notas": "",
+              "fecha": "2026-07-02T22:42:01.016Z",
+              "categoria": "general",
+              "cantidad": 2,
+              "precioUnitario": 450,
+              "comprador": "fer",
+              "folios": [
+                "GEN-005",
+                "GEN-006"
+              ],
+              "monto": 900
+            },
+            {
+              "id": 1783032195280,
+              "tipo": "venta",
+              "metodoPago": "efectivo",
+              "concepto": "Venta 1 x general",
+              "notas": "",
+              "fecha": "2026-07-02T22:43:15.280Z",
+              "categoria": "general",
+              "cantidad": 1,
+              "precioUnitario": 300,
+              "comprador": "omar",
+              "folios": [
+                "GEN-007"
+              ],
+              "monto": 300
+            },
+            {
+              "id": 1783032755593,
+              "tipo": "venta",
+              "metodoPago": "efectivo",
+              "concepto": "Venta 1 x general",
+              "notas": "",
+              "fecha": "2026-07-02T22:52:35.593Z",
+              "categoria": "general",
+              "cantidad": 1,
+              "precioUnitario": 450,
+              "comprador": "",
+              "folios": [
+                "GEN-008"
+              ],
+              "monto": 450
+            },
+            {
+              "id": 1783038272410,
+              "tipo": "venta",
+              "metodoPago": "efectivo",
+              "concepto": "Venta 1 x general",
+              "notas": "",
+              "fecha": "2026-07-03T00:24:32.410Z",
+              "categoria": "general",
+              "cantidad": 1,
+              "precioUnitario": 300,
+              "comprador": "omar",
+              "telefono": "5574368966",
+              "folios": [
+                "GEN-009"
+              ],
+              "boletos": [
+                {
+                  "folio": "GEN-009",
+                  "token": "MR46Y84AM72J7S"
+                }
+              ],
+              "monto": 300
+            }
+          ],
+          "foliosContador": {
+            "general": 9
+          }
+        }
+      ]
+    },
+    {
+      "id": 1782408074111,
+      "nombre": "dada",
+      "lugar": "dsas",
+      "imagen": "",
+      "activo": true,
+      "funciones": [
+        {
+          "id": 1,
+          "fecha": "2027-03-03",
+          "hora": "17:30",
+          "categorias": {
+            "general": {
+              "preventa": 450,
+              "precio": 600,
+              "boletos": 100
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "precio": 600,
+          "boletosDisponibles": 100,
+          "activa": true
+        }
+      ]
+    },
+    {
+      "id": 1782671427858,
+      "nombre": "Sencillamente Hipocrita",
+      "lugar": "Teatro Varsovia",
+      "imagen": "",
+      "activo": true,
+      "funciones": [
+        {
+          "id": 1,
+          "fecha": "2026-09-19",
+          "hora": "20:30",
+          "categorias": {
+            "general": {
+              "preventa": 300,
+              "precio": 400,
+              "boletos": 100
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "precio": 400,
+          "boletosDisponibles": 100,
+          "activa": true
+        }
+      ]
+    },
+    {
+      "id": 1782684354226,
+      "tipoRegistro": "activacion",
+      "nombre": "casa ideas",
+      "lugar": "lomas verdes",
+      "imagen": "",
+      "activo": true,
+      "contacto": "Mariana",
+      "telefono": "5574368966",
+      "notas": "Vestuario Mexico",
+      "funciones": [
+        {
+          "id": 1,
+          "tipoRegistro": "activacion",
+          "fecha": "2026-06-29",
+          "hora": "13:30",
+          "categorias": {
+            "general": {
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "precio": 0,
+          "boletosDisponibles": 0,
+          "contacto": "Mariana",
+          "telefono": "5574368966",
+          "notas": "Vestuario Mexico",
+          "activa": true
+        }
+      ]
+    },
+    {
+      "id": 1782685715479,
+      "tipoRegistro": "activacion",
+      "nombre": "feelbot",
+      "lugar": "miyana",
+      "imagen": "",
+      "activo": true,
+      "contacto": "omar vera",
+      "telefono": "5612087041",
+      "notas": "comoda tenis pantalon de mezclilla",
+      "funciones": [
+        {
+          "id": 1,
+          "tipoRegistro": "activacion",
+          "fecha": "2026-07-01",
+          "hora": "18:30",
+          "categorias": {
+            "general": {
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "precio": 0,
+          "boletosDisponibles": 0,
+          "contacto": "omar vera",
+          "telefono": "5612087041",
+          "notas": "comoda tenis pantalon de mezclilla",
+          "activa": true,
+          "estado": "confirmado",
+          "timeline": [
+            {
+              "id": 1782828638494,
+              "tipo": "estado",
+              "mensaje": "Estado: Cancelado",
+              "fecha": "2026-06-30T14:10:38.494Z"
+            },
+            {
+              "id": 1782833676199,
+              "tipo": "estado",
+              "mensaje": "Estado cambiado: Cancelado → Confirmado",
+              "fecha": "2026-06-30T15:34:36.199Z"
+            },
+            {
+              "id": 1782833686901,
+              "tipo": "checklist",
+              "mensaje": "Pendiente agregado: hdmi",
+              "fecha": "2026-06-30T15:34:46.900Z"
+            },
+            {
+              "id": 1782836573140,
+              "tipo": "material",
+              "mensaje": "Material agregado: canaleta",
+              "fecha": "2026-06-30T16:22:53.139Z"
+            },
+            {
+              "id": 1782836618638,
+              "tipo": "material",
+              "mensaje": "Material listo: canaleta",
+              "fecha": "2026-06-30T16:23:38.638Z"
+            },
+            {
+              "id": 1782836619576,
+              "tipo": "material",
+              "mensaje": "Material pendiente: canaleta",
+              "fecha": "2026-06-30T16:23:39.576Z"
+            },
+            {
+              "id": 1782836620471,
+              "tipo": "checklist",
+              "mensaje": "Completado: hdmi",
+              "fecha": "2026-06-30T16:23:40.471Z"
+            },
+            {
+              "id": 1782836621069,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: hdmi",
+              "fecha": "2026-06-30T16:23:41.069Z"
+            },
+            {
+              "id": 1782836793443,
+              "tipo": "checklist",
+              "mensaje": "Pendiente eliminado: hdmi",
+              "fecha": "2026-06-30T16:26:33.443Z"
+            },
+            {
+              "id": 1782837913508,
+              "tipo": "edicion",
+              "mensaje": "Operación editada",
+              "fecha": "2026-06-30T16:45:13.508Z"
+            }
+          ],
+          "checklist": [],
+          "material": [
+            {
+              "id": 1782836573139,
+              "nombre": "canaleta",
+              "listo": false
+            }
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "id": 1782828638495,
+          "tipo": "estado",
+          "mensaje": "Estado: Cancelado",
+          "fecha": "2026-06-30T14:10:38.494Z"
+        },
+        {
+          "id": 1782833676200,
+          "tipo": "estado",
+          "mensaje": "Estado cambiado: Cancelado → Confirmado",
+          "fecha": "2026-06-30T15:34:36.199Z"
+        },
+        {
+          "id": 1782833686902,
+          "tipo": "checklist",
+          "mensaje": "Pendiente agregado: hdmi",
+          "fecha": "2026-06-30T15:34:46.900Z"
+        },
+        {
+          "id": 1782836573141,
+          "tipo": "material",
+          "mensaje": "Material agregado: canaleta",
+          "fecha": "2026-06-30T16:22:53.139Z"
+        },
+        {
+          "id": 1782836618639,
+          "tipo": "material",
+          "mensaje": "Material listo: canaleta",
+          "fecha": "2026-06-30T16:23:38.638Z"
+        },
+        {
+          "id": 1782836619577,
+          "tipo": "material",
+          "mensaje": "Material pendiente: canaleta",
+          "fecha": "2026-06-30T16:23:39.576Z"
+        },
+        {
+          "id": 1782836620471,
+          "tipo": "checklist",
+          "mensaje": "Completado: hdmi",
+          "fecha": "2026-06-30T16:23:40.471Z"
+        },
+        {
+          "id": 1782836621069,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: hdmi",
+          "fecha": "2026-06-30T16:23:41.069Z"
+        },
+        {
+          "id": 1782836793444,
+          "tipo": "checklist",
+          "mensaje": "Pendiente eliminado: hdmi",
+          "fecha": "2026-06-30T16:26:33.443Z"
+        },
+        {
+          "id": 1782837913509,
+          "tipo": "edicion",
+          "mensaje": "Operación editada",
+          "fecha": "2026-06-30T16:45:13.508Z"
+        }
+      ]
+    },
+    {
+      "id": 1782752423998,
+      "tipoRegistro": "activacion",
+      "nombre": "casa ideas",
+      "lugar": "miyana",
+      "imagen": "",
+      "activo": true,
+      "contacto": "omar vera",
+      "telefono": "5612087041",
+      "notas": "ropa\ntenis\nbotas",
+      "checklist": [
+        {
+          "id": 1,
+          "texto": "Confirmar lugar",
+          "completado": false
+        },
+        {
+          "id": 2,
+          "texto": "Confirmar contacto",
+          "completado": false
+        },
+        {
+          "id": 3,
+          "texto": "Confirmar material",
+          "completado": false
+        }
+      ],
+      "documentos": [],
+      "contactos": [
+        {
+          "id": 1,
+          "nombre": "omar vera",
+          "telefono": "5612087041"
+        }
+      ],
+      "timeline": [
+        {
+          "id": 1782752423999,
+          "tipo": "creacion",
+          "mensaje": "Registro creado (activacion)",
+          "fecha": "2026-06-29T17:00:23.999Z"
+        },
+        {
+          "id": 1782756593879,
+          "tipo": "checklist",
+          "mensaje": "Completado: Confirmar lugar",
+          "fecha": "2026-06-29T18:09:53.879Z"
+        },
+        {
+          "id": 1782756594868,
+          "tipo": "checklist",
+          "mensaje": "Completado: Confirmar contacto",
+          "fecha": "2026-06-29T18:09:54.868Z"
+        },
+        {
+          "id": 1782756595817,
+          "tipo": "checklist",
+          "mensaje": "Completado: Confirmar material",
+          "fecha": "2026-06-29T18:09:55.817Z"
+        },
+        {
+          "id": 1782756601222,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: Confirmar lugar",
+          "fecha": "2026-06-29T18:10:01.222Z"
+        },
+        {
+          "id": 1782756601790,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: Confirmar contacto",
+          "fecha": "2026-06-29T18:10:01.790Z"
+        },
+        {
+          "id": 1782756602152,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: Confirmar material",
+          "fecha": "2026-06-29T18:10:02.152Z"
+        },
+        {
+          "id": 1782837935614,
+          "tipo": "estado",
+          "mensaje": "Estado cambiado: Pendiente → Confirmado",
+          "fecha": "2026-06-30T16:45:35.613Z"
+        }
+      ],
+      "funciones": [
+        {
+          "id": 1,
+          "tipoRegistro": "activacion",
+          "fecha": "2026-07-01",
+          "hora": "20:30",
+          "categorias": {
+            "general": {
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "descuentosActivos": true,
+          "precio": 0,
+          "boletosDisponibles": 0,
+          "contacto": "omar vera",
+          "telefono": "5612087041",
+          "notas": "ropa\ntenis\nbotas",
+          "checklist": [
+            {
+              "id": 1,
+              "texto": "Confirmar lugar",
+              "completado": false
+            },
+            {
+              "id": 2,
+              "texto": "Confirmar contacto",
+              "completado": false
+            },
+            {
+              "id": 3,
+              "texto": "Confirmar material",
+              "completado": false
+            }
+          ],
+          "timeline": [
+            {
+              "id": 1782752423999,
+              "tipo": "creacion",
+              "mensaje": "Registro creado (activacion)",
+              "fecha": "2026-06-29T17:00:23.999Z"
+            },
+            {
+              "id": 1782756593879,
+              "tipo": "checklist",
+              "mensaje": "Completado: Confirmar lugar",
+              "fecha": "2026-06-29T18:09:53.879Z"
+            },
+            {
+              "id": 1782756594868,
+              "tipo": "checklist",
+              "mensaje": "Completado: Confirmar contacto",
+              "fecha": "2026-06-29T18:09:54.868Z"
+            },
+            {
+              "id": 1782756595817,
+              "tipo": "checklist",
+              "mensaje": "Completado: Confirmar material",
+              "fecha": "2026-06-29T18:09:55.817Z"
+            },
+            {
+              "id": 1782756601222,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: Confirmar lugar",
+              "fecha": "2026-06-29T18:10:01.222Z"
+            },
+            {
+              "id": 1782756601790,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: Confirmar contacto",
+              "fecha": "2026-06-29T18:10:01.790Z"
+            },
+            {
+              "id": 1782756602152,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: Confirmar material",
+              "fecha": "2026-06-29T18:10:02.152Z"
+            },
+            {
+              "id": 1782837935613,
+              "tipo": "estado",
+              "mensaje": "Estado cambiado: Pendiente → Confirmado",
+              "fecha": "2026-06-30T16:45:35.613Z"
+            }
+          ],
+          "activa": true,
+          "estado": "confirmado"
+        }
+      ]
+    },
+    {
+      "id": 1782759328858,
+      "tipoRegistro": "activacion",
+      "nombre": "feelbot",
+      "lugar": "miyana",
+      "imagen": "",
+      "activo": true,
+      "contacto": "omar vera",
+      "telefono": "5612087041",
+      "notas": "Llegar 30 min antes",
+      "checklist": [],
+      "documentos": [],
+      "contactos": [
+        {
+          "id": 1,
+          "nombre": "omar vera",
+          "telefono": "5612087041"
+        }
+      ],
+      "timeline": [
+        {
+          "id": 1782759328858,
+          "tipo": "creacion",
+          "mensaje": "Registro creado (activacion)",
+          "fecha": "2026-06-29T18:55:28.858Z"
+        },
+        {
+          "id": 1782759342966,
+          "tipo": "checklist",
+          "mensaje": "Pendiente agregado: Cable hdmi",
+          "fecha": "2026-06-29T18:55:42.964Z"
+        },
+        {
+          "id": 1782759349348,
+          "tipo": "checklist",
+          "mensaje": "Pendiente agregado: tenis",
+          "fecha": "2026-06-29T18:55:49.346Z"
+        },
+        {
+          "id": 1782759352235,
+          "tipo": "checklist",
+          "mensaje": "Pendiente agregado: falda",
+          "fecha": "2026-06-29T18:55:52.233Z"
+        },
+        {
+          "id": 1782759407001,
+          "tipo": "checklist",
+          "mensaje": "Completado: Cable hdmi",
+          "fecha": "2026-06-29T18:56:47.001Z"
+        },
+        {
+          "id": 1782759408530,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: Cable hdmi",
+          "fecha": "2026-06-29T18:56:48.530Z"
+        },
+        {
+          "id": 1782759409252,
+          "tipo": "checklist",
+          "mensaje": "Completado: Cable hdmi",
+          "fecha": "2026-06-29T18:56:49.252Z"
+        },
+        {
+          "id": 1782759409646,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: Cable hdmi",
+          "fecha": "2026-06-29T18:56:49.646Z"
+        },
+        {
+          "id": 1782759410808,
+          "tipo": "checklist",
+          "mensaje": "Completado: falda",
+          "fecha": "2026-06-29T18:56:50.808Z"
+        },
+        {
+          "id": 1782759422116,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: falda",
+          "fecha": "2026-06-29T18:57:02.116Z"
+        },
+        {
+          "id": 1782759422717,
+          "tipo": "checklist",
+          "mensaje": "Completado: tenis",
+          "fecha": "2026-06-29T18:57:02.717Z"
+        },
+        {
+          "id": 1782759423307,
+          "tipo": "checklist",
+          "mensaje": "Completado: Cable hdmi",
+          "fecha": "2026-06-29T18:57:03.307Z"
+        },
+        {
+          "id": 1782759593197,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: tenis",
+          "fecha": "2026-06-29T18:59:53.197Z"
+        },
+        {
+          "id": 1782760041738,
+          "tipo": "checklist",
+          "mensaje": "Completado: tenis",
+          "fecha": "2026-06-29T19:07:21.738Z"
+        },
+        {
+          "id": 1782760042582,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: tenis",
+          "fecha": "2026-06-29T19:07:22.582Z"
+        },
+        {
+          "id": 1782760043494,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: Cable hdmi",
+          "fecha": "2026-06-29T19:07:23.494Z"
+        },
+        {
+          "id": 1782760048474,
+          "tipo": "checklist",
+          "mensaje": "Completado: Cable hdmi",
+          "fecha": "2026-06-29T19:07:28.474Z"
+        },
+        {
+          "id": 1782761674689,
+          "tipo": "checklist",
+          "mensaje": "Pendiente eliminado: Cable hdmi",
+          "fecha": "2026-06-29T19:34:34.688Z"
+        },
+        {
+          "id": 1782828428843,
+          "tipo": "estado",
+          "mensaje": "Estado: Finalizado",
+          "fecha": "2026-06-30T14:07:08.842Z"
+        }
+      ],
+      "funciones": [
+        {
+          "id": 1,
+          "tipoRegistro": "activacion",
+          "fecha": "2026-06-18",
+          "hora": "12:59",
+          "categorias": {
+            "general": {
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "descuentosActivos": true,
+          "precio": 0,
+          "boletosDisponibles": 0,
+          "contacto": "omar vera",
+          "telefono": "5612087041",
+          "notas": "Llegar 30 min antes",
+          "checklist": [
+            {
+              "id": 1782759349346,
+              "texto": "tenis",
+              "completado": false
+            },
+            {
+              "id": 1782759352233,
+              "texto": "falda",
+              "completado": false
+            }
+          ],
+          "timeline": [
+            {
+              "id": 1782759328858,
+              "tipo": "creacion",
+              "mensaje": "Registro creado (activacion)",
+              "fecha": "2026-06-29T18:55:28.858Z"
+            },
+            {
+              "id": 1782759342965,
+              "tipo": "checklist",
+              "mensaje": "Pendiente agregado: Cable hdmi",
+              "fecha": "2026-06-29T18:55:42.964Z"
+            },
+            {
+              "id": 1782759349347,
+              "tipo": "checklist",
+              "mensaje": "Pendiente agregado: tenis",
+              "fecha": "2026-06-29T18:55:49.346Z"
+            },
+            {
+              "id": 1782759352234,
+              "tipo": "checklist",
+              "mensaje": "Pendiente agregado: falda",
+              "fecha": "2026-06-29T18:55:52.233Z"
+            },
+            {
+              "id": 1782759407001,
+              "tipo": "checklist",
+              "mensaje": "Completado: Cable hdmi",
+              "fecha": "2026-06-29T18:56:47.001Z"
+            },
+            {
+              "id": 1782759408530,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: Cable hdmi",
+              "fecha": "2026-06-29T18:56:48.530Z"
+            },
+            {
+              "id": 1782759409252,
+              "tipo": "checklist",
+              "mensaje": "Completado: Cable hdmi",
+              "fecha": "2026-06-29T18:56:49.252Z"
+            },
+            {
+              "id": 1782759409646,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: Cable hdmi",
+              "fecha": "2026-06-29T18:56:49.646Z"
+            },
+            {
+              "id": 1782759410808,
+              "tipo": "checklist",
+              "mensaje": "Completado: falda",
+              "fecha": "2026-06-29T18:56:50.808Z"
+            },
+            {
+              "id": 1782759422116,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: falda",
+              "fecha": "2026-06-29T18:57:02.116Z"
+            },
+            {
+              "id": 1782759422717,
+              "tipo": "checklist",
+              "mensaje": "Completado: tenis",
+              "fecha": "2026-06-29T18:57:02.717Z"
+            },
+            {
+              "id": 1782759423307,
+              "tipo": "checklist",
+              "mensaje": "Completado: Cable hdmi",
+              "fecha": "2026-06-29T18:57:03.307Z"
+            },
+            {
+              "id": 1782759593197,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: tenis",
+              "fecha": "2026-06-29T18:59:53.197Z"
+            },
+            {
+              "id": 1782760041738,
+              "tipo": "checklist",
+              "mensaje": "Completado: tenis",
+              "fecha": "2026-06-29T19:07:21.738Z"
+            },
+            {
+              "id": 1782760042582,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: tenis",
+              "fecha": "2026-06-29T19:07:22.582Z"
+            },
+            {
+              "id": 1782760043494,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: Cable hdmi",
+              "fecha": "2026-06-29T19:07:23.494Z"
+            },
+            {
+              "id": 1782760048474,
+              "tipo": "checklist",
+              "mensaje": "Completado: Cable hdmi",
+              "fecha": "2026-06-29T19:07:28.474Z"
+            },
+            {
+              "id": 1782761674688,
+              "tipo": "checklist",
+              "mensaje": "Pendiente eliminado: Cable hdmi",
+              "fecha": "2026-06-29T19:34:34.688Z"
+            },
+            {
+              "id": 1782828428842,
+              "tipo": "estado",
+              "mensaje": "Estado: Finalizado",
+              "fecha": "2026-06-30T14:07:08.842Z"
+            }
+          ],
+          "activa": true,
+          "estado": "finalizado"
+        }
+      ]
+    },
+    {
+      "id": 1782759391285,
+      "tipoRegistro": "activacion",
+      "nombre": "casa ideas",
+      "lugar": "miyana",
+      "imagen": "",
+      "activo": true,
+      "contacto": "omar vera",
+      "telefono": "5612087041",
+      "notas": "",
+      "checklist": [],
+      "documentos": [],
+      "contactos": [
+        {
+          "id": 1,
+          "nombre": "omar vera",
+          "telefono": "5612087041"
+        }
+      ],
+      "timeline": [
+        {
+          "id": 1782759391285,
+          "tipo": "creacion",
+          "mensaje": "Registro creado (activacion)",
+          "fecha": "2026-06-29T18:56:31.285Z"
+        },
+        {
+          "id": 1782759404394,
+          "tipo": "checklist",
+          "mensaje": "Pendiente agregado: hdmi",
+          "fecha": "2026-06-29T18:56:44.392Z"
+        },
+        {
+          "id": 1782759412365,
+          "tipo": "checklist",
+          "mensaje": "Completado: hdmi",
+          "fecha": "2026-06-29T18:56:52.365Z"
+        },
+        {
+          "id": 1782759412569,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: hdmi",
+          "fecha": "2026-06-29T18:56:52.569Z"
+        },
+        {
+          "id": 1782759419902,
+          "tipo": "checklist",
+          "mensaje": "Completado: hdmi",
+          "fecha": "2026-06-29T18:56:59.902Z"
+        },
+        {
+          "id": 1782759430037,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: hdmi",
+          "fecha": "2026-06-29T18:57:10.037Z"
+        },
+        {
+          "id": 1782760046249,
+          "tipo": "checklist",
+          "mensaje": "Completado: hdmi",
+          "fecha": "2026-06-29T19:07:26.249Z"
+        },
+        {
+          "id": 1782760046720,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: hdmi",
+          "fecha": "2026-06-29T19:07:26.720Z"
+        },
+        {
+          "id": 1782855566047,
+          "tipo": "checklist",
+          "mensaje": "Completado: hdmi",
+          "fecha": "2026-06-30T21:39:26.047Z"
+        },
+        {
+          "id": 1782855567589,
+          "tipo": "checklist",
+          "mensaje": "Reabierto: hdmi",
+          "fecha": "2026-06-30T21:39:27.589Z"
+        }
+      ],
+      "funciones": [
+        {
+          "id": 1,
+          "tipoRegistro": "activacion",
+          "fecha": "2026-06-18",
+          "hora": "21:02",
+          "categorias": {
+            "general": {
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "descuentosActivos": true,
+          "precio": 0,
+          "boletosDisponibles": 0,
+          "contacto": "omar vera",
+          "telefono": "5612087041",
+          "notas": "",
+          "checklist": [
+            {
+              "id": 1782759404392,
+              "texto": "hdmi",
+              "completado": false
+            }
+          ],
+          "timeline": [
+            {
+              "id": 1782759391285,
+              "tipo": "creacion",
+              "mensaje": "Registro creado (activacion)",
+              "fecha": "2026-06-29T18:56:31.285Z"
+            },
+            {
+              "id": 1782759404393,
+              "tipo": "checklist",
+              "mensaje": "Pendiente agregado: hdmi",
+              "fecha": "2026-06-29T18:56:44.392Z"
+            },
+            {
+              "id": 1782759412365,
+              "tipo": "checklist",
+              "mensaje": "Completado: hdmi",
+              "fecha": "2026-06-29T18:56:52.365Z"
+            },
+            {
+              "id": 1782759412569,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: hdmi",
+              "fecha": "2026-06-29T18:56:52.569Z"
+            },
+            {
+              "id": 1782759419902,
+              "tipo": "checklist",
+              "mensaje": "Completado: hdmi",
+              "fecha": "2026-06-29T18:56:59.902Z"
+            },
+            {
+              "id": 1782759430037,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: hdmi",
+              "fecha": "2026-06-29T18:57:10.037Z"
+            },
+            {
+              "id": 1782760046249,
+              "tipo": "checklist",
+              "mensaje": "Completado: hdmi",
+              "fecha": "2026-06-29T19:07:26.249Z"
+            },
+            {
+              "id": 1782760046720,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: hdmi",
+              "fecha": "2026-06-29T19:07:26.720Z"
+            },
+            {
+              "id": 1782855566047,
+              "tipo": "checklist",
+              "mensaje": "Completado: hdmi",
+              "fecha": "2026-06-30T21:39:26.047Z"
+            },
+            {
+              "id": 1782855567589,
+              "tipo": "checklist",
+              "mensaje": "Reabierto: hdmi",
+              "fecha": "2026-06-30T21:39:27.589Z"
+            }
+          ],
+          "activa": true
+        }
+      ]
+    },
+    {
+      "id": 1783188998267,
+      "tipoRegistro": "funcion",
+      "nombre": "Frankiewennie",
+      "lugar": "Luna",
+      "imagen": "",
+      "activo": true,
+      "checklist": [],
+      "documentos": [],
+      "contactos": [],
+      "timeline": [
+        {
+          "id": 1783188998267,
+          "tipo": "creacion",
+          "mensaje": "Registro creado (funcion)",
+          "fecha": "2026-07-04T18:16:38.267Z"
+        }
+      ],
+      "funciones": [
+        {
+          "id": 1,
+          "tipoRegistro": "funcion",
+          "fecha": "2026-07-05",
+          "hora": "12:30",
+          "categorias": {
+            "general": {
+              "preventa": 300,
+              "precio": 400,
+              "boletos": 20
+            },
+            "preferente": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            },
+            "vip": {
+              "activa": false,
+              "preventa": 0,
+              "precio": 0,
+              "boletos": 0
+            }
+          },
+          "descuentos": [],
+          "precio": 400,
+          "boletosDisponibles": 20,
+          "estado": "pendiente",
+          "activa": true,
+          "movimientos": [
+            {
+              "id": 1783189051426,
+              "tipo": "venta",
+              "metodoPago": "efectivo",
+              "concepto": "Venta 1 x general",
+              "notas": "",
+              "fecha": "2026-07-04T18:17:31.426Z",
+              "categoria": "general",
+              "cantidad": 1,
+              "precioUnitario": 300,
+              "comprador": "diana",
+              "telefono": "5574368966",
+              "folios": [
+                "GEN-001"
+              ],
+              "boletos": [
+                {
+                  "folio": "GEN-001",
+                  "token": "MR6OPXYAQMPAW9"
+                }
+              ],
+              "monto": 300
+            }
+          ],
+          "foliosContador": {
+            "general": 1
+          }
+        }
+      ]
+    }
+  ],
+  "tiposRegistro": {
+    "activacion": {
+      "icono": "📍",
+      "nombre": "Activación",
+      "clase": "tipo-activacion",
+      "descripcion": "Marca, plaza o evento promocional."
+    },
+    "clase": {
+      "icono": "🎓",
+      "nombre": "Clase",
+      "clase": "tipo-clase",
+      "descripcion": "Taller, curso, masterclass o capacitación."
+    },
+    "ensayo": {
+      "icono": "🎤",
+      "nombre": "Ensayo",
+      "clase": "tipo-ensayo",
+      "descripcion": "Preparación artística o técnica."
+    },
+    "grabacion": {
+      "icono": "🎬",
+      "nombre": "Grabación",
+      "clase": "tipo-grabacion",
+      "descripcion": "Video, streaming, contenido o sesión."
+    },
+    "especial": {
+      "icono": "🎪",
+      "nombre": "Evento especial",
+      "clase": "tipo-especial",
+      "descripcion": "Actividad única o evento no recurrente."
+    },
+    "traslado": {
+      "icono": "🚚",
+      "nombre": "Traslado",
+      "clase": "tipo-traslado",
+      "descripcion": "Equipo, staff, utilería o logística."
+    },
+    "mantenimiento": {
+      "icono": "🛠️",
+      "nombre": "Mantenimiento",
+      "clase": "tipo-mantenimiento",
+      "descripcion": "Reparaciones o revisión técnica."
+    }
+  },
+  "outbox": [
+    {
+      "id": 1783038272757,
+      "movId": 1783038272410,
+      "eventoNombre": "dedede",
+      "telefono": "5574368966",
+      "comprador": "omar",
+      "texto": "Hola omar! 🎫\nTu compra para dedede el 2026-07-03 10:00 está confirmada.\nGeneral · 1 boleto(s)\nFolios: GEN-009\n¡Te esperamos!",
+      "estado": "enviado",
+      "intentos": 1,
+      "creado": "2026-07-03T00:24:32.411Z",
+      "enviado": "2026-07-04T17:48:11.588Z"
+    },
+    {
+      "id": 1783189051646,
+      "movId": 1783189051426,
+      "eventoNombre": "Frankiewennie",
+      "telefono": "5574368966",
+      "comprador": "diana",
+      "texto": "Hola diana! 🎫\nTu compra para *Frankiewennie* el 2026-07-05 12:30 está confirmada.\nGeneral · 1 boleto(s)\nFolios: GEN-001\n¡Te esperamos!",
+      "estado": "enviado",
+      "intentos": 1,
+      "creado": "2026-07-04T18:17:31.426Z",
+      "enviado": "2026-07-04T18:17:33.022Z"
+    }
+  ],
+  "botConfig": {
+    "precios": {
+      "normal": 450,
+      "preventa": 300
+    },
+    "mensajes": {
+      "menu": "Hola!!!!!!!!!!!!\n",
+      "confirmacion_venta": "Hola {nombre}! 🎫\nTu compra para *{evento}* el {fecha} está confirmada.\n{categoria} · {cantidad} boleto(s)\nFolios: {folios}\n¡Te esperamos!"
+    },
+    "funciones": [
+      {
+        "nombre": "Domingo 14 de Junio",
+        "horario": "19:00 hrs",
+        "capacidad": 300,
+        "hoja": "Domingo14",
+        "activa": true
+      },
+      {
+        "nombre": "Viernes 26 de Junio",
+        "horario": "19:00 hrs",
+        "capacidad": 300,
+        "hoja": "Viernes26",
+        "activa": true
+      },
+      {
+        "nombre": "Domingo 28 de Junio",
+        "horario": "19:00 hrs",
+        "capacidad": 300,
+        "hoja": "Domingo28",
+        "activa": true
+      }
+    ]
+  },
+  "botEstado": {
+    "estado": "conectado",
+    "qr": null,
+    "ts": "2026-07-04T18:41:02.684Z"
+  }
+}

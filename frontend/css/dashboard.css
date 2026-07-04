@@ -1,0 +1,214 @@
+/* ============================================================
+
+   MÓDULO: DASHBOARD EJECUTIVO
+
+   RESPONSABILIDAD:
+   - KPIs.
+   - Próximos eventos.
+   - Disponibilidad.
+   - Promociones.
+   - Actividad reciente.
+   - Acciones rápidas.
+
+============================================================ */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+    align-items:start;
+}
+
+.dashboard-widget{
+    min-height:220px;
+}
+
+.dashboard-widget-large{
+    grid-row:span 2;
+}
+
+.dashboard-widget-wide{
+    grid-column:1 / -1;
+}
+
+.dashboard-lista{
+    display:grid;
+    gap:12px;
+}
+
+.proximo-evento-card{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:14px;
+    align-items:center;
+    padding:14px;
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    background:linear-gradient(135deg, #ffffff, #f8fafc);
+}
+
+.proximo-evento-card h3{
+    margin:0 0 6px;
+    font-size:16px;
+}
+
+.proximo-evento-meta{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    color:#64748b;
+    font-size:13px;
+    margin:0;
+}
+
+.proximo-evento-boletos{
+    text-align:right;
+    font-weight:800;
+    color:#1d4ed8;
+    background:#eff6ff;
+    border:1px solid #bfdbfe;
+    border-radius:14px;
+    padding:10px 12px;
+    min-width:110px;
+}
+
+.proximo-evento-boletos small{
+    font-size:12px;
+}
+
+.dashboard-metricas{
+    display:grid;
+    gap:14px;
+}
+
+.disponibilidad-item{
+    display:grid;
+    gap:8px;
+}
+
+.disponibilidad-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    font-size:14px;
+    font-weight:800;
+}
+
+.barra-dashboard{
+    height:10px;
+    border-radius:999px;
+    background:#e2e8f0;
+    overflow:hidden;
+}
+
+.barra-dashboard span{
+    display:block;
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background:linear-gradient(135deg, #2563eb, #60a5fa);
+}
+
+.dashboard-promos{
+    display:grid;
+    gap:12px;
+}
+
+.promo-resumen{
+    padding:14px;
+    border-radius:16px;
+    border:1px solid #fed7aa;
+    background:#fff7ed;
+}
+
+.promo-numero{
+    display:block;
+    font-size:32px;
+    line-height:1;
+    font-weight:900;
+    color:#c2410c;
+    margin-bottom:6px;
+}
+
+.promo-label{
+    color:#64748b;
+    font-size:13px;
+}
+
+.dashboard-actividad{
+    display:grid;
+    gap:10px;
+}
+
+.actividad-item{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px;
+    border-radius:14px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+}
+
+.actividad-icono{
+    width:32px;
+    height:32px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef2ff;
+}
+
+.actividad-item strong{
+    display:block;
+    font-size:14px;
+}
+
+.actividad-item span{
+    display:block;
+    color:#64748b;
+    font-size:12px;
+    margin-top:2px;
+}
+
+.acciones-rapidas{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap:12px;
+}
+
+.acciones-rapidas button{
+    min-height:56px;
+}
+
+@media(max-width:1100px){
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-widget-large,
+    .dashboard-widget-wide{
+        grid-column:auto;
+        grid-row:auto;
+    }
+
+    .acciones-rapidas{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width:650px){
+    .proximo-evento-card{
+        grid-template-columns:1fr;
+    }
+
+    .proximo-evento-boletos{
+        text-align:left;
+    }
+
+    .acciones-rapidas{
+        grid-template-columns:1fr;
+    }
+}

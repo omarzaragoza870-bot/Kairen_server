@@ -1,0 +1,505 @@
+/* ============================================================
+
+   RC-2.1 DARK PREMIUM THEME
+
+   OBJETIVO:
+   - Dar identidad visual oscura, minimalista y premium.
+   - Inspirado en dashboards SaaS modernos.
+   - No cambia lógica, solo experiencia visual.
+
+============================================================ */
+
+:root{
+    --bg:#070b16;
+    --bg-2:#0b1120;
+    --sidebar:#050816;
+    --sidebar-2:#08111f;
+
+    --card:#0f172a;
+    --card-2:#111c33;
+    --card-hover:#172033;
+
+    --primary:#4f7cff;
+    --primary-2:#2563eb;
+    --primary-soft:rgba(79,124,255,.14);
+
+    --purple:#8b5cf6;
+    --green:#22c55e;
+    --orange:#f59e0b;
+    --cyan:#38bdf8;
+
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --muted-2:#64748b;
+
+    --border:rgba(148,163,184,.18);
+    --border-strong:rgba(79,124,255,.26);
+
+    --danger:#ef4444;
+    --danger-soft:rgba(239,68,68,.14);
+    --warning:#f59e0b;
+    --success:#22c55e;
+
+    --shadow:0 18px 45px rgba(0,0,0,.34);
+    --glow:0 0 0 1px rgba(79,124,255,.14), 0 18px 40px rgba(37,99,235,.12);
+}
+
+html{
+    background:var(--bg);
+}
+
+body{
+    background:
+        radial-gradient(circle at 20% 10%, rgba(79,124,255,.18), transparent 28%),
+        radial-gradient(circle at 82% 4%, rgba(139,92,246,.12), transparent 26%),
+        linear-gradient(135deg, #070b16 0%, #0b1120 48%, #08111f 100%);
+    color:var(--text);
+}
+
+/* ============================= */
+/* LAYOUT */
+/* ============================= */
+
+.sidebar{
+    background:linear-gradient(180deg, rgba(5,8,22,.98), rgba(8,17,31,.98));
+    border-right:1px solid rgba(148,163,184,.12);
+    box-shadow:18px 0 45px rgba(0,0,0,.25);
+}
+
+.logo{
+    color:#ffffff;
+    letter-spacing:-.4px;
+}
+
+.sidebar-section{
+    color:#64748b;
+}
+
+.menu-item{
+    color:#cbd5e1;
+    background:transparent;
+}
+
+.menu-item:hover{
+    background:rgba(79,124,255,.10);
+    color:#ffffff;
+}
+
+.menu-item.active{
+    background:linear-gradient(135deg, rgba(79,124,255,.92), rgba(37,99,235,.82));
+    box-shadow:0 14px 32px rgba(37,99,235,.34);
+    color:white;
+}
+
+.main{
+    background:transparent;
+}
+
+.topbar{
+    background:linear-gradient(135deg, rgba(15,23,42,.92), rgba(17,28,51,.78));
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(18px);
+}
+
+.dashboard-title h1{
+    color:#ffffff;
+}
+
+.dashboard-title p,
+.panel-subtitle,
+.card-subtitle,
+.evento-card-pro-meta,
+.proximo-evento-meta,
+.actividad-item span,
+.promo-label{
+    color:var(--muted);
+}
+
+/* ============================= */
+/* CARDS / PANELS */
+/* ============================= */
+
+.stat-card,
+.panel,
+.evento-card-pro,
+.eventos-tabla-wrapper,
+.evento-resumen-card{
+    background:linear-gradient(145deg, rgba(15,23,42,.94), rgba(17,28,51,.76));
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(14px);
+}
+
+.stat-card:hover,
+.evento-card-pro:hover,
+.panel:hover{
+    border-color:var(--border-strong);
+    box-shadow:var(--glow);
+}
+
+.card-icon,
+.evento-resumen-card > span,
+.actividad-icono{
+    background:linear-gradient(135deg, rgba(79,124,255,.18), rgba(79,124,255,.05));
+    color:#8fb3ff;
+}
+
+.card-title{
+    color:#cbd5e1;
+}
+
+.number,
+.panel h2,
+.evento-card-pro h3,
+.proximo-evento-card h3,
+.actividad-item strong{
+    color:#ffffff;
+}
+
+/* ============================= */
+/* BOTONES */
+/* ============================= */
+
+button{
+    background:#111827;
+    color:#ffffff;
+    border:1px solid rgba(148,163,184,.16);
+}
+
+button:hover{
+    background:#172033;
+    border-color:rgba(79,124,255,.32);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg, #4f7cff, #2563eb);
+    color:white;
+    border:1px solid rgba(147,197,253,.28);
+    box-shadow:0 12px 28px rgba(37,99,235,.25);
+}
+
+.btn-primary:hover{
+    background:linear-gradient(135deg, #5b86ff, #2f6df0);
+}
+
+.btn-secundario{
+    background:rgba(79,124,255,.12);
+    color:#dbeafe;
+    border:1px solid rgba(79,124,255,.18);
+}
+
+.btn-secundario:hover{
+    background:rgba(79,124,255,.20);
+    color:#ffffff;
+}
+
+.btn-danger{
+    background:rgba(239,68,68,.12);
+    color:#fecaca;
+    border:1px solid rgba(239,68,68,.20);
+}
+
+.btn-danger:hover{
+    background:rgba(239,68,68,.20);
+}
+
+/* ============================= */
+/* INPUTS / SELECTS */
+/* ============================= */
+
+input,
+select,
+textarea{
+    background:rgba(15,23,42,.82);
+    color:#f8fafc;
+    border:1px solid rgba(148,163,184,.18);
+    box-shadow:none;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#64748b;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#4f7cff;
+    box-shadow:0 0 0 4px rgba(79,124,255,.14);
+}
+
+.eventos-filtros-grid input,
+.eventos-filtros-grid select{
+    background:rgba(15,23,42,.86);
+    color:#f8fafc;
+    border:1px solid rgba(148,163,184,.20);
+}
+
+.eventos-filtros-grid select{
+    background-image:
+        linear-gradient(45deg, transparent 50%, #94a3b8 50%),
+        linear-gradient(135deg, #94a3b8 50%, transparent 50%);
+}
+
+/* ============================= */
+/* BOT / SWITCH */
+/* ============================= */
+
+.bot-control{
+    background:rgba(15,23,42,.82);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.bot-label{
+    color:var(--muted);
+}
+
+/* ============================= */
+/* EVENTOS PRO */
+/* ============================= */
+
+.eventos-pro-header,
+.eventos-toolbar-pro{
+    background:linear-gradient(145deg, rgba(15,23,42,.94), rgba(17,28,51,.76));
+}
+
+.evento-resumen-card strong{
+    color:white;
+}
+
+.eventos-vistas .vista-activa{
+    background:linear-gradient(135deg, #4f7cff, #2563eb);
+    color:#ffffff;
+    border-color:rgba(147,197,253,.28);
+}
+
+.evento-card-pro{
+    overflow:hidden;
+    position:relative;
+}
+
+.evento-card-pro::before{
+    content:"";
+    display:block;
+    height:4px;
+    width:100%;
+    background:linear-gradient(90deg, #4f7cff, #8b5cf6, #22c55e);
+}
+
+.evento-card-pro-placeholder,
+.evento-imagen-placeholder{
+    background:linear-gradient(135deg, rgba(15,23,42,.94), rgba(30,41,59,.9));
+    color:#64748b;
+}
+
+.evento-pro-stat,
+.funcion-item,
+.categoria-card,
+.actividad-item{
+    background:rgba(15,23,42,.76);
+    border:1px solid rgba(148,163,184,.14);
+}
+
+.evento-pro-stat strong,
+.categoria-card h4{
+    color:#ffffff;
+}
+
+.evento-pro-stat span,
+.categoria-card p,
+.funcion-label{
+    color:var(--muted);
+}
+
+.evento-pro-proxima{
+    background:rgba(79,124,255,.12);
+    color:#dbeafe;
+    border:1px solid rgba(79,124,255,.22);
+}
+
+.funcion{
+    background:rgba(8,13,28,.72);
+    border-left-color:#4f7cff;
+}
+
+.eventos-tabla th{
+    background:rgba(15,23,42,.92);
+    color:#94a3b8;
+}
+
+.eventos-tabla td{
+    border-bottom:1px solid rgba(148,163,184,.10);
+    color:#e2e8f0;
+}
+
+.evento-tabla-nombre small{
+    color:#94a3b8;
+}
+
+/* ============================= */
+/* DASHBOARD */
+/* ============================= */
+
+.proximo-evento-card{
+    background:rgba(15,23,42,.72);
+    border:1px solid rgba(148,163,184,.14);
+}
+
+.proximo-evento-boletos{
+    background:rgba(79,124,255,.14);
+    color:#dbeafe;
+    border:1px solid rgba(79,124,255,.26);
+}
+
+.barra-dashboard{
+    background:rgba(51,65,85,.85);
+}
+
+.barra-dashboard span{
+    background:linear-gradient(135deg, #4f7cff, #38bdf8);
+}
+
+.promo-resumen{
+    background:rgba(245,158,11,.10);
+    border:1px solid rgba(245,158,11,.24);
+}
+
+.promo-numero{
+    color:#fbbf24;
+}
+
+/* ============================= */
+/* ESTADOS */
+/* ============================= */
+
+.status-ok{
+    color:#86efac;
+    background:rgba(34,197,94,.12);
+    border:1px solid rgba(34,197,94,.18);
+}
+
+.status-off{
+    color:#fca5a5;
+    background:rgba(239,68,68,.12);
+    border:1px solid rgba(239,68,68,.18);
+}
+
+/* ============================= */
+/* MODALES */
+/* ============================= */
+
+.modal{
+    background:rgba(2,6,23,.72);
+    backdrop-filter:blur(8px);
+}
+
+.modal-contenido,
+.modal-evento-premium{
+    background:linear-gradient(145deg, rgba(15,23,42,.98), rgba(17,28,51,.96)) !important;
+    border:1px solid rgba(148,163,184,.18);
+    color:var(--text);
+}
+
+.modal-evento-icon{
+    background:linear-gradient(135deg, rgba(79,124,255,.22), rgba(139,92,246,.12));
+}
+
+.modal-evento-premium h2,
+.modal-contenido h2{
+    color:white;
+}
+
+.modal-description,
+.modal-evento-premium .modal-description{
+    color:var(--muted);
+}
+
+.modal-evento-premium hr{
+    border-top:1px solid rgba(148,163,184,.14);
+}
+
+.modal-evento-premium input,
+.modal-evento-premium select{
+    background:rgba(15,23,42,.88);
+    color:white;
+    border:1px solid rgba(148,163,184,.18);
+}
+
+.modal-acciones-premium{
+    background:linear-gradient(180deg, rgba(15,23,42,.50), rgba(15,23,42,.96));
+}
+
+.categoria-general,
+.categoria-preferente,
+.categoria-vip,
+.categoria-descuentos{
+    background:rgba(15,23,42,.72);
+    border:1px solid rgba(148,163,184,.16);
+}
+
+.categoria-general h3{ color:#93c5fd; }
+.categoria-preferente h3{ color:#86efac; }
+.categoria-vip h3{ color:#c4b5fd; }
+.categoria-descuentos h3{ color:#fbbf24; }
+
+.categoria-header p{
+    color:#94a3b8;
+}
+
+/* ============================= */
+/* DESCUENTOS */
+/* ============================= */
+
+.descuentos-funcion{
+    background:rgba(245,158,11,.08);
+    border:1px solid rgba(245,158,11,.20);
+    border-radius:16px;
+    padding:12px 14px;
+    margin:12px 0;
+}
+
+/* En la versión compacta (solo encabezado) no sobra espacio abajo. */
+.descuentos-funcion-compacto .descuentos-header{
+    margin-bottom:0;
+}
+
+.descuento-chip{
+    background:rgba(79,124,255,.12);
+    border:1px solid rgba(79,124,255,.22);
+    color:#dbeafe;
+}
+
+.descuento-chip button{
+    background:rgba(79,124,255,.20) !important;
+    color:#ffffff !important;
+}
+
+.empty-state{
+    background:rgba(15,23,42,.72);
+    border:1px dashed rgba(148,163,184,.22);
+    color:#94a3b8;
+}
+
+/* ============================= */
+/* SCROLLBAR */
+/* ============================= */
+
+::-webkit-scrollbar{
+    width:10px;
+    height:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#070b16;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#334155;
+    border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#475569;
+}

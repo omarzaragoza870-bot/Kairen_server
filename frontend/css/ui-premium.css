@@ -1,0 +1,545 @@
+/* ============================================================
+
+   RC-2.2 UI PREMIUM / DESIGN SYSTEM
+
+   OBJETIVO:
+   - Refinamiento visual minimalista.
+   - Barra de búsqueda limpia.
+   - Filtros compactos.
+   - Botones de vista tipo icono.
+   - Tarjetas más elegantes y menos pesadas.
+   - Mantener Dark Premium sin aspecto gamer.
+
+============================================================ */
+
+/* ============================= */
+/* BASE VISUAL PREMIUM */
+/* ============================= */
+
+body{
+    letter-spacing:-0.01em;
+}
+
+.main{
+    padding:28px;
+}
+
+.topbar{
+    border-radius:26px;
+    padding:26px 28px;
+}
+
+.dashboard-title h1{
+    font-size:34px;
+    line-height:1;
+}
+
+.dashboard-title p{
+    font-size:15px;
+}
+
+.panel,
+.stat-card,
+.evento-card-pro,
+.evento-resumen-card{
+    border-radius:24px;
+}
+
+.panel{
+    padding:24px;
+}
+
+/* ============================= */
+/* EVENTOS HEADER */
+/* ============================= */
+
+.eventos-pro{
+    gap:18px;
+}
+
+.eventos-pro-header{
+    padding:24px 26px;
+    border-radius:24px;
+}
+
+.eventos-pro-header h2{
+    font-size:24px;
+    letter-spacing:-.03em;
+}
+
+.eventos-pro-header .panel-subtitle{
+    max-width:520px;
+    line-height:1.35;
+}
+
+.eventos-pro-header .panel-actions{
+    gap:10px;
+}
+
+.eventos-pro-header .panel-actions button{
+    min-height:46px;
+    border-radius:14px;
+}
+
+/* ============================= */
+/* TOOLBAR MINIMALISTA */
+/* ============================= */
+
+.eventos-toolbar-minimal{
+    padding:14px;
+    border-radius:24px;
+}
+
+.eventos-filtros-minimal{
+    display:grid;
+    grid-template-columns:minmax(280px, 1fr) 190px 190px auto;
+    gap:10px;
+    align-items:center;
+}
+
+.eventos-filtros-minimal input,
+.eventos-filtros-minimal select{
+    height:48px;
+    margin:0;
+    border-radius:16px;
+    background:rgba(8,13,28,.72);
+    border:1px solid rgba(148,163,184,.16);
+    color:#e5edf9;
+    font-size:14px;
+}
+
+.eventos-filtros-minimal input{
+    padding-left:16px;
+}
+
+.eventos-filtros-minimal input:focus,
+.eventos-filtros-minimal select:focus{
+    border-color:rgba(79,124,255,.65);
+    box-shadow:0 0 0 4px rgba(79,124,255,.12);
+}
+
+.eventos-filtros-minimal select{
+    appearance:none;
+    -webkit-appearance:none;
+    padding-left:16px;
+    background-color:rgba(8,13,28,.72);
+    background-image:
+        linear-gradient(45deg, transparent 50%, #94a3b8 50%),
+        linear-gradient(135deg, #94a3b8 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 21px,
+        calc(100% - 13px) 21px;
+    background-size:5px 5px;
+    background-repeat:no-repeat;
+    padding-right:36px;
+    cursor:pointer;
+}
+
+.eventos-vistas{
+    display:flex;
+    gap:8px;
+    justify-content:flex-end;
+    margin:0;
+}
+
+.eventos-vistas button{
+    width:48px;
+    min-width:48px;
+    height:48px;
+    padding:0;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+}
+
+.eventos-vistas .vista-activa{
+    background:linear-gradient(135deg, rgba(79,124,255,.95), rgba(37,99,235,.88));
+    box-shadow:0 12px 28px rgba(37,99,235,.26);
+}
+
+/* ============================= */
+/* RESUMEN COMPACTO */
+/* ============================= */
+
+.eventos-resumen-grid{
+    gap:12px;
+}
+
+.evento-resumen-card{
+    padding:16px;
+    min-height:92px;
+}
+
+.evento-resumen-card > span{
+    width:42px;
+    height:42px;
+    border-radius:15px;
+}
+
+.evento-resumen-card strong{
+    font-size:24px;
+}
+
+.evento-resumen-card small{
+    font-size:12px;
+}
+
+/* ============================= */
+/* TARJETAS EVENTOS PREMIUM */
+/* ============================= */
+
+.eventos-grid-pro{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:18px;
+}
+
+.evento-card-pro{
+    border-radius:26px;
+    transition:.22s ease;
+}
+
+.evento-card-pro:hover{
+    transform:translateY(-3px);
+}
+
+.evento-card-pro::before{
+    height:3px;
+    opacity:.95;
+}
+
+.evento-card-pro-imagen,
+.evento-card-pro-placeholder{
+    height:170px;
+}
+
+.evento-card-pro-body{
+    padding:18px;
+}
+
+.evento-card-pro h3{
+    font-size:20px;
+    letter-spacing:-.03em;
+}
+
+.evento-card-pro-meta{
+    font-size:13px;
+}
+
+.evento-pro-stats{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:8px;
+}
+
+.evento-pro-stat{
+    border-radius:16px;
+    padding:12px;
+}
+
+.evento-pro-stat strong{
+    font-size:19px;
+}
+
+.evento-pro-proxima{
+    border-radius:16px;
+    padding:11px 12px;
+}
+
+.evento-pro-acciones{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.evento-pro-acciones button{
+    min-width:0;
+    min-height:42px;
+    border-radius:14px;
+}
+
+/* ============================= */
+/* FUNCIONES DENTRO DE TARJETAS */
+/* ============================= */
+
+.funciones-lista{
+    margin-top:16px;
+}
+
+.funcion{
+    border-radius:18px;
+    padding:14px;
+}
+
+.funcion-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+
+.categorias-grid{
+    gap:8px;
+}
+
+.categoria-card{
+    border-radius:16px;
+}
+
+/* ============================= */
+/* TABLA PREMIUM */
+/* ============================= */
+
+.eventos-tabla-wrapper{
+    border-radius:24px;
+}
+
+.eventos-tabla th{
+    font-size:11px;
+}
+
+.eventos-tabla th,
+.eventos-tabla td{
+    padding:16px;
+}
+
+/* ============================= */
+/* CONFIGURACION Y FORMULARIOS */
+/* ============================= */
+
+.configuracion-bot{
+    border-radius:18px;
+}
+
+input,
+select,
+button{
+    font-family:inherit;
+}
+
+button{
+    letter-spacing:-.01em;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:1200px){
+    .eventos-filtros-minimal{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .eventos-vistas{
+        justify-content:flex-start;
+    }
+}
+
+@media(max-width:900px){
+    .eventos-grid-pro{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:720px){
+    .main{
+        padding:18px;
+    }
+
+    .eventos-filtros-minimal{
+        grid-template-columns:1fr;
+    }
+
+    .eventos-vistas{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .eventos-vistas button{
+        width:100%;
+    }
+
+    .evento-pro-acciones{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .evento-pro-acciones button{
+        min-height:40px;
+        padding:8px 10px;
+    }
+}
+
+/* ============================================================
+
+   RC-2.3 DESCUENTOS DRAWER
+
+   RESPONSABILIDAD:
+   - Panel lateral para administrar descuentos por función.
+   - Mantiene la tarjeta de evento limpia.
+   - No cambia backend.
+
+============================================================ */
+
+.modal-drawer-backdrop{
+    justify-content:flex-end;
+    align-items:stretch;
+    padding:0;
+}
+
+.drawer-descuentos{
+    width:min(460px, 94vw);
+    max-height:88vh;
+    background:linear-gradient(145deg, rgba(15,23,42,.98), rgba(17,28,51,.96));
+    border:1px solid rgba(148,163,184,.18);
+    border-radius:24px;
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+    padding:24px;
+    overflow-y:auto;
+    animation:drawerIn .2s ease;
+}
+
+@keyframes drawerIn{
+    from{
+        transform:translateY(12px) scale(.98);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+}
+
+.drawer-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.drawer-header h2{
+    margin:0;
+    color:white;
+    font-size:26px;
+    letter-spacing:-.04em;
+}
+
+/* El subtitulo base trae margin-top:-8px (para otros modales);
+   aqui lo reseteamos para que no se encime con el titulo. */
+.drawer-header .modal-description{
+    margin:4px 0 0;
+}
+
+.drawer-toolbar{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:12px;
+    align-items:center;
+    margin-bottom:18px;
+    padding:14px;
+    border:1px solid rgba(148,163,184,.16);
+    border-radius:18px;
+    background:rgba(8,13,28,.58);
+}
+
+.drawer-status span{
+    display:block;
+    color:#94a3b8;
+    font-size:12px;
+    margin-bottom:4px;
+}
+
+.drawer-status strong{
+    color:#86efac;
+    font-size:14px;
+}
+
+.drawer-lista-descuentos{
+    display:grid;
+    gap:12px;
+}
+
+.drawer-descuento-card{
+    border:1px solid rgba(148,163,184,.16);
+    border-radius:18px;
+    background:rgba(15,23,42,.76);
+    padding:14px;
+}
+
+.drawer-descuento-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:10px;
+}
+
+.drawer-descuento-codigo{
+    display:block;
+    font-size:17px;
+    font-weight:900;
+    color:white;
+    letter-spacing:.02em;
+}
+
+.drawer-descuento-valor{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 10px;
+    border-radius:999px;
+    background:rgba(79,124,255,.13);
+    border:1px solid rgba(79,124,255,.22);
+    color:#dbeafe;
+    font-size:13px;
+    font-weight:800;
+}
+
+.drawer-descuento-meta{
+    color:#94a3b8;
+    font-size:13px;
+    margin:0 0 12px;
+}
+
+.drawer-descuento-actions{
+    display:flex;
+    gap:8px;
+}
+
+.drawer-descuento-actions button{
+    flex:1;
+    min-height:40px;
+    border-radius:14px;
+}
+
+.funcion-acciones-premium{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:12px;
+}
+
+.funcion-acciones-premium button{
+    min-height:38px;
+    border-radius:14px;
+}
+
+.btn-descuentos-funcion{
+    background:rgba(245,158,11,.12);
+    color:#fbbf24;
+    border:1px solid rgba(245,158,11,.24);
+}
+
+.btn-descuentos-funcion:hover{
+    background:rgba(245,158,11,.18);
+    color:#fde68a;
+}
+
+@media(max-width:650px){
+    .drawer-toolbar{
+        grid-template-columns:1fr;
+    }
+
+    .drawer-descuento-actions{
+        grid-template-columns:1fr;
+        flex-direction:column;
+    }
+}

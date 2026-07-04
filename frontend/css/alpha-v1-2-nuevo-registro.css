@@ -1,0 +1,139 @@
+/* ============================================================
+   NUEVO REGISTRO — estilos de la pantalla de Agenda
+
+   MODULAR / responsabilidad única:
+   - Solo estiliza el selector de "Nuevo registro"
+     (.nuevo-registro-page, .registro-grupo, .registro-grid,
+      .registro-opcion, .registro-info).
+
+   NOTAS:
+   - El selector de "Nuevo registro" ahora se abre como MODAL
+     (#modalNuevoRegistro), igual que Nuevo Evento. Estas clases
+     viven dentro de ese modal.
+   - Esto define la VISTA AMPLIA (laptop / web / tablet horizontal).
+   - La VISTA COMPACTA (celular / tablet vertical) la maneja
+     mobile-real-drawer-compact.css. No se duplica aquí.
+   - Los colores por tipo (.tipo-funcion, etc.) viven en
+     alpha-v1-1-operaciones.css.
+
+   Reconstruido y deduplicado: antes eran 842 líneas con el mismo
+   selector repetido 4-6 veces. Aquí queda 1 sola fuente de verdad.
+============================================================ */
+
+.nuevo-registro-page{
+    display:grid;
+    gap:18px;
+}
+
+/* Grupos */
+.registro-grupo{
+    display:grid;
+    gap:9px;
+}
+
+.registro-grupo h3{
+    margin:0;
+    color:#fff;
+    font-size:15px;
+    font-weight:900;
+    line-height:1.2;
+}
+
+/* Rejillas */
+.registro-grid{
+    display:grid;
+    gap:10px;
+}
+
+.registro-grid-2{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+
+.registro-grid-4{
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+}
+
+/* Tarjeta de opción */
+.registro-opcion{
+    height:76px;
+    display:grid;
+    grid-template-columns:42px 1fr 16px;
+    align-items:center;
+    gap:10px;
+    padding:12px 13px;
+    border-radius:16px;
+    background:rgba(15,23,42,.78);
+    color:#f8fafc;
+    border:1px solid rgba(148,163,184,.16);
+    box-shadow:0 10px 24px rgba(0,0,0,.14);
+    text-align:left;
+    overflow:hidden;
+    transition:.22s ease;
+}
+
+.registro-opcion:hover{
+    transform:translateY(-3px);
+    border-color:rgba(79,124,255,.44);
+    box-shadow:0 20px 44px rgba(37,99,235,.16);
+}
+
+.registro-opcion span{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    border-radius:12px;
+    background:#eef2ff;
+}
+
+.registro-opcion strong{
+    display:block;
+    color:#fff;
+    font-size:13.5px;
+    line-height:1.1;
+    margin-bottom:2px;
+    letter-spacing:-.03em;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.registro-opcion small{
+    color:#94a3b8;
+    font-size:10.5px;
+    line-height:1.2;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.registro-opcion b{
+    justify-self:end;
+    color:#94a3b8;
+    font-size:16px;
+}
+
+/* Aviso inferior */
+.registro-info{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    min-height:52px;
+    padding:10px 13px;
+    border-radius:15px;
+    background:rgba(79,124,255,.10);
+    border:1px solid rgba(79,124,255,.18);
+    color:#dbeafe;
+}
+
+.registro-info span{ font-size:18px; }
+.registro-info strong{ color:#fff; font-size:13px; }
+.registro-info p{ margin:4px 0 0; color:#94a3b8; font-size:11px; }
+
+/* Tablet / ventana media: las 4 de Operación pasan a 2 columnas */
+@media (max-width: 1100px){
+    .registro-grid-4{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}

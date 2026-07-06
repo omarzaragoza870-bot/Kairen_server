@@ -57,6 +57,7 @@
 
         <div class="sidebar-section">Operación</div>
         <div class="menu-item" id="menuVentas" onclick="mostrarSeccion('ventas')">💰 Ventas</div>
+        <div class="menu-item" id="menuReservas" onclick="mostrarSeccion('reservas')">📋 Reservas</div>
         <div class="menu-item" id="menuBot" onclick="mostrarSeccion('bot')">🤖 Bot</div>
     </aside>
 
@@ -548,6 +549,26 @@
                 <div id="ventasFunciones" class="ventas-funciones"></div>
             </div>
         </section>
+        <section id="seccionReservas" class="app-section oculto">
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>📋 Reservas del bot</h2>
+                        <p class="panel-subtitle">Confirma el pago para enviar el boleto con QR, o cancela.</p>
+                    </div>
+                    <button class="btn-secundario" onclick="renderPanelReservas()">🔄 Actualizar</button>
+                </div>
+
+                <div class="reservas-filtros">
+                    <button class="reservas-filtro active" data-filtro="todas" onclick="filtrarReservas('todas', this)">Todas</button>
+                    <button class="reservas-filtro" data-filtro="pendientes" onclick="filtrarReservas('pendientes', this)">Por confirmar</button>
+                    <button class="reservas-filtro" data-filtro="confirmadas" onclick="filtrarReservas('confirmadas', this)">Confirmadas</button>
+                    <button class="reservas-filtro" data-filtro="canceladas" onclick="filtrarReservas('canceladas', this)">Canceladas</button>
+                </div>
+
+                <div id="reservasLista" class="reservas-lista"></div>
+            </div>
+        </section>
         <section id="seccionBot" class="app-section oculto">
             <div class="panel">
                 <div class="panel-header">
@@ -569,6 +590,18 @@
                         <div class="caja-campo">
                             <label class="caja-campo-label">Precio preventa</label>
                             <input id="botPrecioPreventa" type="number" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bot-bloque">
+                    <h3 class="bot-bloque-titulo">🖼️ Logo del boleto</h3>
+                    <p class="bot-ayuda">Aparece en el PDF del boleto. Puedes cambiarlo cuando quieras.</p>
+                    <div class="bot-logo-fila">
+                        <div id="botLogoPreview" class="bot-logo-preview">Sin logo</div>
+                        <div>
+                            <input type="file" id="botLogoInput" accept="image/*" onchange="subirLogoBot(this)">
+                            <button class="btn-secundario btn-mini" onclick="quitarLogoBot()">Quitar logo</button>
                         </div>
                     </div>
                 </div>
@@ -1695,6 +1728,7 @@
 <script src="js/eventos.js"></script>
 <script src="js/caja.js"></script>
 <script src="js/bot.js"></script>
+<script src="js/reservas.js"></script>
 <script src="js/modales.js"></script>
 <script src="js/app.js"></script>
 

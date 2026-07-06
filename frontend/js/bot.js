@@ -16,6 +16,61 @@ async function renderPanelBot(){
     await Promise.all([cargarEstadoBot(), cargarConfigBot(), renderEventosBot()]);
 }
 
+/* ---- Logo del boleto ---- */
+
+let BOT_LOGO_URL = "";
+
+function pintarLogoPreview(){
+    const prev = document.getElementById("botLogoPreview");
+    if(!prev){ return; }
+    if(BOT_LOGO_URL){
+        prev.innerHTML = `<img src="${BOT_LOGO_URL}" alt="logo">`;
+    }else{
+        prev.textContent = "Sin logo";
+    }
+}
+
+async function subirLogoBot(input){
+    const file = input.files && input.files[0];
+    if(!file){ return; }
+    const reader = new FileReader();
+    reader.onload = async () => {
+        try{
+            const r = await fetch(`${API_URL}/api/upload`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ dataUrl: reader.result, nombre: file.name })
+            });
+            const data = await r.json();
+            if(!r.ok || !data.url){ throw new Error("upload falló"); }
+            BOT_LOGO_URL = data.url;
+            pintarLogoPreview();
+            await guardarLogoBot();
+            mostrarToast("Logo actualizado ✅", "success");
+        }catch(e){
+            mostrarToast("No se pudo subir el logo", "error");
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+async function quitarLogoBot(){
+    BOT_LOGO_URL = "";
+    pintarLogoPreview();
+    await guardarLogoBot();
+    mostrarToast("Logo quitado", "success");
+}
+
+async function guardarLogoBot(){
+    try{
+        await fetch(`${API_URL}/api/bot/config`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ logo: BOT_LOGO_URL })
+        });
+    }catch(e){ /* se reintenta al guardar config */ }
+}
+
 async function cargarEstadoBot(){
     const cont = document.getElementById("botEstado");
     if(!cont){ return; }
@@ -71,6 +126,9 @@ async function cargarConfigBot(){
     if(pn){ pn.value = cfg.precios?.normal ?? ""; }
     if(pp){ pp.value = cfg.precios?.preventa ?? ""; }
 
+    BOT_LOGO_URL = cfg.logo || "";
+    pintarLogoPreview();
+
     const cont = document.getElementById("botMensajes");
     if(!cont){ return; }
 
@@ -109,7 +167,7 @@ async function guardarConfigBot(){
         const r = await fetch(`${API_URL}/api/bot/config`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ precios, mensajes })
+            body: JSON.stringify({ precios, mensajes, logo: BOT_LOGO_URL })
         });
         if(!r.ok){ throw new Error("PUT falló"); }
         mostrarToast("Configuración del bot guardada ✅", "success");
